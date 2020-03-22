@@ -1,0 +1,14 @@
+a {
+    text-decoration: none;
+    color: white;
+}
+
+.header-container {
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    height: 80px;
+}
+
+.header-container .spotify-icon:hover path {
+    fill: rgb(29,185,84);
+}
