@@ -1,0 +1,20 @@
+.footer-container {
+    bottom: 0;
+    left: 0;
+    background-color: black;
+    height: 120px;
+    align-items: center;
+    display: flex;
+    position: fixed;
+    width: 100%;
+    justify-content: space-around;
+    color: white;
+}
+
+.footer-container .spotify-icon {
+    width: 132px;
+}
+
+.footer-container .spotify-icon:hover path {
+    fill: rgb(29,185,84);
+}

@@ -5,10 +5,33 @@ a {
 
 .header-container {
     width: 100%;
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: rgba(29, 185, 84, 0.6);
     height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.header-container .spotify-icon {
+    width: 132px;
 }
 
 .header-container .spotify-icon:hover path {
     fill: rgb(29,185,84);
+}
+
+.navigation-container {
+    display: flex;
+    font-weight: 500;
+    color: white;
+    font-size: 20px;
+}
+
+.navigation-container div {
+    padding: 0 20px;
+}
+
+.navigation-container a:hover {
+    color: rgb(29,185,84);
+    cursor: pointer;
 }
