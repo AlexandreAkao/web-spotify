@@ -16,6 +16,6 @@
 body {
   /* background-image: url("./assets/img/bg.jpg"); */
   background-size: cover;
-  background: rgb(0,36,13);
-background: linear-gradient(90deg, rgba(0,36,13,1) 0%, rgba(29,185,84,1) 50%, rgba(0,36,13,1) 100%);
+  background: rgb(0, 66, 24);
+background: linear-gradient(90deg, rgb(0, 66, 24) 0%, rgba(29,185,84,1) 50%, rgb(0, 66, 24) 100%);
 }
