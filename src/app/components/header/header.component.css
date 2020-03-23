@@ -1,11 +1,12 @@
 a {
     text-decoration: none;
     color: white;
+    transition: ease 0.1s;
 }
 
 .header-container {
     width: 100%;
-    background-color: rgba(29, 185, 84, 0.6);
+    background-color: rgba(0, 0, 0, 0.6);
     height: 80px;
     display: flex;
     align-items: center;
@@ -18,6 +19,7 @@ a {
 
 .header-container .spotify-icon:hover path {
     fill: rgb(29,185,84);
+    transition: ease 0.1s;
 }
 
 .navigation-container {
@@ -25,6 +27,8 @@ a {
     font-weight: 500;
     color: white;
     font-size: 20px;
+    transition: ease 0.1s;
+
 }
 
 .navigation-container div {
@@ -34,4 +38,5 @@ a {
 .navigation-container a:hover {
     color: rgb(29,185,84);
     cursor: pointer;
+    transition: ease 0.1s;
 }
