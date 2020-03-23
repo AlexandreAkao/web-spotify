@@ -2,6 +2,8 @@ div.description-container {
     display: flex;
     align-items: center;
     flex-direction: column;
+    min-height: 100%;
+    overflow: auto;
 }
 
 div.description-container video {
