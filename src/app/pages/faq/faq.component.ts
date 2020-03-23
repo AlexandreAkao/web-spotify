@@ -14,11 +14,15 @@ export class FaqComponent {
         const imgArrow = containerClicked.children[0].children[1];
         const divQuestion = containerClicked.children[1];
 
-        if (divQuestion.className === 'none-container') {
-            divQuestion.className = '';
+        if (divQuestion.className === 'answer-container none-container') {
+            const classesName = divQuestion.className.split(' ');
+
+            divQuestion.className = classesName[0];
             imgArrow['src'] = '../../../assets/img/arrow_down.svg';
         } else {
-            divQuestion.className = 'none-container';
+            const classesName = divQuestion.className.split(' ');
+
+            divQuestion.className = classesName[0] + ' none-container';
             imgArrow['src'] = '../../../assets/img/arrow_up.svg';
 
         }

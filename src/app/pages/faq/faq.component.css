@@ -12,7 +12,7 @@
 
 .question-container {
     padding: 20px;
-    margin: 30px 200px;
+    margin: 20px 200px;
     background: white;
     border-radius: 10px;
     cursor: pointer;
@@ -30,6 +30,10 @@
 
 .question img {
     width: 30px;
+}
+
+.answer-container {
+    margin-top: 20px;
 }
 
 .none-container {
