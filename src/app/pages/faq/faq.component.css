@@ -16,6 +16,12 @@
     background: white;
     border-radius: 10px;
     cursor: pointer;
+    transition: ease 0.1s;
+}
+
+.question-container:hover {
+    background: rgb(200, 200, 200);
+    transition: ease 0.1s;
 }
 
 .question-container span {
