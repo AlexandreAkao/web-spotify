@@ -12,7 +12,7 @@
 
 .question-container {
     padding: 20px;
-    margin: 20px 200px;
+    margin: 20px 400px;
     background: white;
     border-radius: 10px;
     cursor: pointer;
@@ -44,4 +44,24 @@
 
 .none-container {
     display: none;
+}
+
+.answer-container div {
+    margin-top: 20px;
+}
+
+.answer-container div a{
+    margin-right: 30px;
+}
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid;
+    text-align: left;
+    padding: 8px;
 }
