@@ -1,0 +1,76 @@
+div.subscribe-container {
+    display: flex;
+    background-color: rgba(36, 36, 36, 0.822);
+    margin: 50px 600px;
+    border-radius: 8px;
+    flex-direction: column;
+    align-items: center;
+    color: #FFF;
+    padding: 20px;
+}
+
+div.subscribe-container .icon-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    border-bottom: 1px solid white;
+    margin-bottom: 20px;
+}
+
+div.subscribe-container .spotify-icon {
+    width: 230px;
+    margin-bottom: 20px;
+}
+
+div.subscribe-container span {
+    font-size: 32px;
+}
+
+div.subscribe-container form {
+    align-items: center;
+    align-content: center;
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+div.subscribe-container form input {
+    min-width: 500px;
+    min-height: 40px;
+    font-size: 32px;
+    margin-bottom: 20px;
+    padding: 5px;
+    color: #4CAF50;
+}
+
+div.subscribe-container form label {
+    color: #4CAF50;
+}
+
+div.subscribe-container div.gender-container {
+    display: flex;
+    justify-content: center;
+
+}
+
+div.subscribe-container div.gender-container input {
+    min-width: 100px;
+    min-height: 24px;
+}
+
+button.button-submit-form {
+    background-color: #4CAF50;
+    padding: 20px 50px;
+    border-radius: 20px;
+    color: #FFF;
+    cursor: pointer;
+    font-size: 18px;
+    /* margin-bottom: 20px; */
+    transition: 0.1s ease;
+
+}
+
+button.button-submit-form:hover {
+    background-color: rgba(76, 175, 79, 0.507);
+    transition: 0.1s ease;
+}
