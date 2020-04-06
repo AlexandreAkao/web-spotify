@@ -14,11 +14,10 @@
 }
 
 html, body {
-  height: 100%;
+  min-height: 100vh;
 }
 
 body {
-  /* background-image: url("./assets/img/bg.jpg"); */
   background-size: cover;
   background: rgb(0, 66, 24);
   background: linear-gradient(90deg, rgb(0, 66, 24) 0%, rgba(29,185,84,1) 50%, rgb(0, 66, 24) 100%);

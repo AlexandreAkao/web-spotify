@@ -1,7 +1,8 @@
 div.subscribe-container {
     display: flex;
     background-color: rgba(36, 36, 36, 0.822);
-    margin: 50px 600px;
+    max-width: 900px;
+    margin: 60px auto;
     border-radius: 8px;
     flex-direction: column;
     align-items: center;
@@ -18,12 +19,13 @@ div.subscribe-container .icon-container {
 }
 
 div.subscribe-container .spotify-icon {
-    width: 230px;
+    width: 200px;
     margin-bottom: 20px;
 }
 
 div.subscribe-container span {
-    font-size: 32px;
+    font-size: 28px;
+    margin: 20px 0;
 }
 
 div.subscribe-container form {
@@ -35,17 +37,16 @@ div.subscribe-container form {
 }
 
 div.subscribe-container form input {
-    min-width: 500px;
+    min-width: 600px;
     min-height: 40px;
-    font-size: 32px;
+    font-size: 20px;
     margin-bottom: 20px;
-    padding: 5px;
-    color: #4CAF50;
+    padding: 8px;
 }
-
+/*
 div.subscribe-container form label {
     color: #4CAF50;
-}
+} */
 
 div.subscribe-container div.gender-container {
     display: flex;
@@ -60,12 +61,12 @@ div.subscribe-container div.gender-container input {
 
 button.button-submit-form {
     background-color: #4CAF50;
-    padding: 20px 50px;
+    padding: 20px 80px;
     border-radius: 20px;
     color: #FFF;
     cursor: pointer;
     font-size: 18px;
-    /* margin-bottom: 20px; */
+    margin: 20px 0;
     transition: 0.1s ease;
 
 }
