@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import Playlist from './playlist';
+import PLAYLISTMOCK from './playListMock';
 
 @Component({
   selector: 'app-playlist',
@@ -7,9 +9,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PlaylistComponent implements OnInit {
 
-  constructor() { }
+  playlists = PLAYLISTMOCK;
+
+  constructor() {}
 
   ngOnInit(): void {
   }
-
 }
