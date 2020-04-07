@@ -36,7 +36,7 @@ div.subscribe-container form {
     margin-top: 20px;
 }
 
-div.subscribe-container form input {
+div.subscribe-container form input.info-1 {
     min-width: 600px;
     min-height: 40px;
     font-size: 20px;
@@ -48,10 +48,26 @@ div.subscribe-container form label {
     color: #4CAF50;
 } */
 
+div.subscribe-container div.birth-container {
+    display: flex;
+    width: 100%;
+    margin-bottom: 20px;
+    justify-content: space-evenly;
+}
+
+div.subscribe-container div.birth-container input, select {
+    max-height: 20px !important;
+    min-height: 40px;
+    padding: 0 20px;
+}
+
+div.subscribe-container div.birth-container select[value="null"] {
+    color: #757575;
+}
+
 div.subscribe-container div.gender-container {
     display: flex;
     justify-content: center;
-
 }
 
 div.subscribe-container div.gender-container input {
@@ -68,7 +84,6 @@ button.button-submit-form {
     font-size: 18px;
     margin: 20px 0;
     transition: 0.1s ease;
-
 }
 
 button.button-submit-form:hover {
