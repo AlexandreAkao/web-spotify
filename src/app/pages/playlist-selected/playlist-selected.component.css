@@ -1,0 +1,107 @@
+div.playlist-selected-content {
+  min-height: 100%;
+}
+
+div.playlist-selected-container {
+  background-color: rgba(36, 36, 36, 0.822);
+  max-width: 1500px;
+  border-radius: 8px;
+  margin: 60px auto;
+  padding: 40px;
+  display: flex;
+}
+
+div.playlist-selected-container div.playlist-info {
+  display: flex;
+  flex-direction: column;
+  font-size: 40px;
+  text-align: center;
+  justify-content: center;
+  width: 500px;
+  color: #fff;
+  margin: 0 24px;
+}
+
+div.playlist-selected-container div.playlist-info div.back-button {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+div.playlist-selected-container div.playlist-info div.back-button:hover svg {
+  fill: rgba(255, 255, 255, 0.5);
+}
+
+div.playlist-selected-container div.playlist-info div.back-button:hover span {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+div.playlist-selected-container div.playlist-info div.back-button svg {
+  margin-right: 8px;
+  fill: #fff;
+  width: 20px;
+}
+div.playlist-selected-container div.playlist-info div.back-button span {
+  font-size: 16px;
+}
+
+div.playlist-selected-container div.playlist-info img.playlist-image {
+  width: 500px;
+  border-radius: 50%;
+  padding: 4px;
+  background-color: rgba(29, 185, 84, 0.6);
+  margin-bottom: 40px;
+  box-shadow: 0px 0px 16px black;
+}
+
+div.music-list-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 20px;
+}
+
+div.music-container {
+  display: flex;
+  background-color: rgba(29, 185, 84, 0.5);
+  padding: 10px;
+  align-items: center;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  color: #fff;
+  justify-content: space-between;
+  box-shadow: 0 0 5px 0px black;
+}
+
+div.music-container div.play-info-container {
+  display: flex;
+  align-items: center;
+}
+
+.music-index {
+  font-size: 20px;
+  color: #000;
+  font-weight: bold;
+}
+
+div.music-container div.music-info {
+  margin-left: 20px;
+}
+
+div.music-container img {
+  width: 28px;
+  cursor: pointer;
+}
+
+div.music-container div.music-info div.author-album {
+  color: rgba(255, 255, 255, 0.7);
+  margin-top: 4px;
+}
+
+div.music-container div.music-info div.author-album span {
+  margin: 0 12px 0 0;
+}
+
+div.music-container div.music-time {
+  margin-right: 12px;
+}

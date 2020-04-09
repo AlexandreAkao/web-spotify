@@ -1,0 +1,55 @@
+<div class="playlist-selected-content">
+
+  <div class="playlist-selected-container">
+
+    <div class="playlist-info">
+
+      <div class="back-button" routerLink="/playlist">
+
+        <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+          width="306px" viewBox="0 0 306 306" style="enable-background:new 0 0 306 306;" xml:space="preserve">
+        <g>
+          <g id="chevron-left">
+            <polygon points="247.35,35.7 211.65,0 58.65,153 211.65,306 247.35,270.3 130.05,153 		"/>
+          </g>
+        </g>
+        </svg>
+
+        <span>Voltar</span>
+      </div>
+
+      <img class="playlist-image" src={{playlist.image}}>
+      <span>{{playlist.name}}</span>
+    </div>
+
+    <div class="music-list-container" *ngFor="let music of playlist.musics; let i = index">
+
+      <div class="music-container">
+
+        <div class="play-info-container">
+
+          <div>
+            <img src="../../../assets/img/play.svg" alt="">
+          </div>
+
+          <div class="music-info">
+            <span class="music-index">{{i + 1}}. </span>
+            <span>{{music.name}}</span>
+
+            <div class="author-album">
+
+              <span>{{music.author}}</span>
+              <span>|</span>
+              <span>{{music.album}}</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="music-time">
+          <span>{{music.duration}}</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

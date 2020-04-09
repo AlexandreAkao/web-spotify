@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import Playlist from './playlist';
 import PLAYLISTMOCK from './playListMock';
 
 @Component({
