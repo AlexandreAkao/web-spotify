@@ -24,7 +24,6 @@ export class FaqComponent {
 
             divQuestion.className = classesName[0] + ' none-container';
             imgArrow['src'] = '../../../assets/img/arrow_up.svg';
-
         }
     }
 }

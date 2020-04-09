@@ -1,3 +1,20 @@
+@keyframes pulse {
+	0% {
+		transform: scale(1.01);
+		box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.7);
+	}
+
+	50% {
+		transform: scale(1);
+		box-shadow: 0 0 0 5px rgba(0, 0, 0, 0);
+	}
+
+	100% {
+		transform: scale(1.01);
+		box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+	}
+}
+
 div.playlist-selected-content {
   min-height: 100%;
 }
@@ -73,13 +90,18 @@ div.music-container {
   box-shadow: 0 0 5px 0px black;
 }
 
+div.music-container:hover {
+  transform: scale(1);
+	animation: pulse 3s infinite;
+}
+
 div.music-container div.play-info-container {
   display: flex;
   align-items: center;
 }
 
 .music-index {
-  font-size: 20px;
+  font-size: 18px;
   color: #000;
   font-weight: bold;
 }

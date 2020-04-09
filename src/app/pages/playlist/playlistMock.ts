@@ -16,7 +16,7 @@ const PLAYLISTS = [
         '',
         'Billie Eilish',
         1,
-        ''
+        '../../../assets/music/Billie Eilish - bad guy.mp3'
       ),
       new Music(
         1,
