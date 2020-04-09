@@ -6,15 +6,33 @@ const PLAYLISTS = [
     1,
     'When We All Fall Asleep, Where Do We Go?',
     '../../../assets/img/album/When_We_Fall_Asleep,_Where_Do_We_Go.png',
-    '',
+    'Billie Eilish',
     1,
     [
       new Music(
         1,
+        'When We All Fall Asleep, Where Do We Go?',
+        'bad guy',
         '',
+        'Billie Eilish',
+        1,
+        ''
+      ),
+      new Music(
+        1,
+        'When We All Fall Asleep, Where Do We Go?',
+        "when the party's over",
         '',
+        'Billie Eilish',
+        1,
+        ''
+      ),
+      new Music(
+        1,
         '',
+        "everything i wanted",
         '',
+        'Billie Eilish',
         1,
         ''
       )

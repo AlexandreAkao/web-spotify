@@ -20,5 +20,4 @@ export class PlaylistSelectedComponent implements OnInit {
     this.playlistId = Number(this.route.snapshot.paramMap.get('id'));
     this.playlist = this.playListsMock[this.playlistId];
   }
-
 }

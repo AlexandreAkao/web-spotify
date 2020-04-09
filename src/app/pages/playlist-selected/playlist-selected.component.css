@@ -95,6 +95,7 @@ div.music-container img {
 
 div.music-container div.music-info div.author-album {
   color: rgba(255, 255, 255, 0.7);
+  font-size: 13px;
   margin-top: 4px;
 }
 

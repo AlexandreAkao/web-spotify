@@ -22,9 +22,9 @@
       <span>{{playlist.name}}</span>
     </div>
 
-    <div class="music-list-container" *ngFor="let music of playlist.musics; let i = index">
+    <div class="music-list-container">
 
-      <div class="music-container">
+      <div class="music-container" *ngFor="let music of playlist.musics; let i = index">
 
         <div class="play-info-container">
 
