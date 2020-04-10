@@ -15,8 +15,8 @@ const PLAYLISTS = [
         'bad guy',
         '',
         'Billie Eilish',
-        1,
-        '../../../assets/music/Billie Eilish - bad guy.mp3'
+        206,
+        '../../../assets/music/Billie_Eilish-bad_guy.mp3'
       ),
       new Music(
         1,
@@ -24,8 +24,8 @@ const PLAYLISTS = [
         "when the party's over",
         '',
         'Billie Eilish',
-        1,
-        ''
+        194,
+        '../../../assets/music/Billie_Eilish-when_the_partys_over.mp3'
       ),
       new Music(
         1,
@@ -33,8 +33,8 @@ const PLAYLISTS = [
         "everything i wanted",
         '',
         'Billie Eilish',
-        1,
-        ''
+        288,
+        '../../../assets/music/Billie_Eilish-everything_i_wanted.mp3'
       )
     ]
   ),

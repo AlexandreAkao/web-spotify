@@ -15,7 +15,7 @@ export class PlaylistSelectedComponent implements OnInit {
   playlist: Playlist;
   isPlaying = false;
   idPlaying = -1;
-  audio: HTMLAudioElement;
+  audio = new Audio();
 
   constructor(private route: ActivatedRoute) { }
 
