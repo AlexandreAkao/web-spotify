@@ -47,7 +47,7 @@ const PLAYLISTS = [
     [
       new Music(
         1,
-        'The Days / Nights',   
+        'The Days / Nights',
         'The Nights',
         '',
         'Avicii',
@@ -56,7 +56,7 @@ const PLAYLISTS = [
       ),
       new Music(
         1,
-        'The Days / Nights',   
+        'The Days / Nights',
         'The Days',
         '',
         'Avicii',
@@ -233,6 +233,51 @@ const PLAYLISTS = [
         'Skrillex',
         198,
         '../../../assets/music/skrillex-doompy-poomp.mp3'
+      ),
+      new Music(
+        1,
+        'Recess',
+        'Ragga Bomb',
+        '',
+        'Skrillex',
+        267,
+        '../../../assets/music/skrillex-ragga-bomb.mp3'
+      ),
+      new Music(
+        1,
+        'Recess',
+        'Ragga Bomb',
+        '',
+        'Skrillex',
+        267,
+        '../../../assets/music/skrillex-ragga-bomb.mp3'
+      ),
+      new Music(
+        1,
+        'Recess',
+        'Ragga Bomb',
+        '',
+        'Skrillex',
+        267,
+        '../../../assets/music/skrillex-ragga-bomb.mp3'
+      ),
+      new Music(
+        1,
+        'Recess',
+        'Ragga Bomb',
+        '',
+        'Skrillex',
+        267,
+        '../../../assets/music/skrillex-ragga-bomb.mp3'
+      ),
+      new Music(
+        1,
+        'Recess',
+        'Ragga Bomb',
+        '',
+        'Skrillex',
+        267,
+        '../../../assets/music/skrillex-ragga-bomb.mp3'
       ),
       new Music(
         1,
