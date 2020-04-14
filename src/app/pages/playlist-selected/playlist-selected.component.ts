@@ -41,4 +41,11 @@ export class PlaylistSelectedComponent implements OnInit {
       icon[index]['src'] = '../../../assets/img/pause.svg';
     }
   }
+
+  parseTime(time) {
+    let min = Math.trunc(time / 60);
+    let seg = time - min * 60;
+
+    return `${min}:${String(seg).padStart(2, '0')}`;
+  }
 }

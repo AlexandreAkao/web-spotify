@@ -159,7 +159,7 @@ const PLAYLISTS = [
         'All Is Fair In Love',
         '',
         'Skrillex',
-        245.4,
+        249,
         '../../../assets/music/skrillex-all-is-fair-in-love.mp3'
       ),
       new Music(
@@ -168,7 +168,7 @@ const PLAYLISTS = [
         'Recess',
         '',
         'Skrillex',
-        214.8,
+        238,
         '../../../assets/music/skrillex-recess.mp3'
       ),
       new Music(
@@ -177,7 +177,7 @@ const PLAYLISTS = [
         'Try It Out',
         '',
         'Skrillex',
-        213,
+        235,
         '../../../assets/music/skrillex-try-it-out.mp3'
       ),
       new Music(
@@ -186,7 +186,7 @@ const PLAYLISTS = [
         'Coast Is Clear',
         '',
         'Skrillex',
-        241.8,
+        243,
         '../../../assets/music/skrillex-coast-is-clear.mp3'
       ),
       new Music(
@@ -195,7 +195,7 @@ const PLAYLISTS = [
         'Fire Away',
         '',
         'Skrillex',
-        324.6,
+        351,
         '../../../assets/music/skrillex-fire-away.mp3'
       ),
       new Music(
@@ -204,7 +204,7 @@ const PLAYLISTS = [
         'Ease My Mind',
         '',
         'Skrillex',
-        301.2,
+        302,
         '../../../assets/music/skrillex-ease-my-mind.mp3'
       ),
       new Music(
@@ -213,7 +213,7 @@ const PLAYLISTS = [
         'Fuck That',
         '',
         'Skrillex',
-        308.4,
+        314,
         '../../../assets/music/skrillex-fuck-that.mp3'
       ),
       new Music(
@@ -222,7 +222,7 @@ const PLAYLISTS = [
         'Doompy Poomp',
         '',
         'Skrillex',
-        190.8,
+        198,
         '../../../assets/music/skrillex-doompy-poomp.mp3'
       ),
       new Music(
@@ -231,7 +231,7 @@ const PLAYLISTS = [
         'Ragga Bomb',
         '',
         'Skrillex',
-        256.2,
+        267,
         '../../../assets/music/skrillex-ragga-bomb.mp3'
       ),
     ]
