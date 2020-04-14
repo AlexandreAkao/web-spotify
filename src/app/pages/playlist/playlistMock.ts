@@ -29,7 +29,7 @@ const PLAYLISTS = [
       ),
       new Music(
         1,
-        '',
+        'When We All Fall Asleep, Where Do We Go?',
         "everything i wanted",
         '',
         'Billie Eilish',
@@ -150,18 +150,90 @@ const PLAYLISTS = [
     1,
     'Recess',
     '../../../assets/img/album/recess.jfif',
-    '',
+    'Skrillex',
     1,
     [
       new Music(
         1,
+        'Recess',
+        'All Is Fair In Love',
         '',
-        '',
-        '',
-        '',
+        'Skrillex',
+        245.4,
+        '../../../assets/music/skrillex-all-is-fair-in-love.mp3'
+      ),
+      new Music(
         1,
-        ''
-      )
+        'Recess',
+        'Recess',
+        '',
+        'Skrillex',
+        214.8,
+        '../../../assets/music/skrillex-recess.mp3'
+      ),
+      new Music(
+        1,
+        'Recess',
+        'Try It Out',
+        '',
+        'Skrillex',
+        213,
+        '../../../assets/music/skrillex-try-it-out.mp3'
+      ),
+      new Music(
+        1,
+        'Recess',
+        'Coast Is Clear',
+        '',
+        'Skrillex',
+        241.8,
+        '../../../assets/music/skrillex-coast-is-clear.mp3'
+      ),
+      new Music(
+        1,
+        'Recess',
+        'Fire Away',
+        '',
+        'Skrillex',
+        324.6,
+        '../../../assets/music/skrillex-fire-away.mp3'
+      ),
+      new Music(
+        1,
+        'Recess',
+        'Ease My Mind',
+        '',
+        'Skrillex',
+        301.2,
+        '../../../assets/music/skrillex-ease-my-mind.mp3'
+      ),
+      new Music(
+        1,
+        'Recess',
+        'Fuck That',
+        '',
+        'Skrillex',
+        308.4,
+        '../../../assets/music/skrillex-fuck-that.mp3'
+      ),
+      new Music(
+        1,
+        'Recess',
+        'Doompy Poomp',
+        '',
+        'Skrillex',
+        190.8,
+        '../../../assets/music/skrillex-doompy-poomp.mp3'
+      ),
+      new Music(
+        1,
+        'Recess',
+        'Ragga Bomb',
+        '',
+        'Skrillex',
+        256.2,
+        '../../../assets/music/skrillex-ragga-bomb.mp3'
+      ),
     ]
   )
 ];
