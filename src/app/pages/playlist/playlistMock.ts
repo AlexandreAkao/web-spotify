@@ -42,17 +42,26 @@ const PLAYLISTS = [
     1,
     'The Days / Nights',
     '../../../assets/img/album/the_days_nights.png',
-    '',
+    'Avicii',
     1,
     [
       new Music(
         1,
+        'The Days / Nights',   
+        'The Nights',
         '',
-        '',
-        '',
-        '',
+        'Avicii',
+        186,
+        '../../../assets/music/avicii-the-nights.mp3'
+      ),
+      new Music(
         1,
-        ''
+        'The Days / Nights',   
+        'The Days',
+        '',
+        'Avicii',
+        282,
+        '../../../assets/music/avicii-the-days.mp3'
       )
     ]
   ),
@@ -233,7 +242,7 @@ const PLAYLISTS = [
         'Skrillex',
         267,
         '../../../assets/music/skrillex-ragga-bomb.mp3'
-      ),
+      )
     ]
   )
 ];
