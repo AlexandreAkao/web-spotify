@@ -9,7 +9,6 @@ import { HomeComponent } from './pages/home/home.component';
 import { FaqComponent } from './pages/faq/faq.component';
 import { SubscribeComponent } from './pages/subscribe/subscribe.component';
 import { PlaylistComponent } from './pages/playlist/playlist.component';
-import { PlaylistBoxComponent } from './pages/playlist/playlist-box/playlist-box.component';
 import { PlaylistSelectedComponent } from './pages/playlist-selected/playlist-selected.component';
 
 @NgModule({
@@ -21,7 +20,6 @@ import { PlaylistSelectedComponent } from './pages/playlist-selected/playlist-se
     FaqComponent,
     SubscribeComponent,
     PlaylistComponent,
-    PlaylistBoxComponent,
     PlaylistSelectedComponent
   ],
   imports: [

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import PLAYLISTMOCK from './playListMock';
+import { PlaylistService } from 'src/app/playlist/playlist.service';
+import Playlist from 'src/app/playlist/Playlist';
 
 @Component({
   selector: 'app-playlist',
@@ -8,10 +9,11 @@ import PLAYLISTMOCK from './playListMock';
 })
 export class PlaylistComponent implements OnInit {
 
-  playlists = PLAYLISTMOCK;
+  playlists: Playlist[];
 
-  constructor() {}
+  constructor(private ps: PlaylistService) {}
 
   ngOnInit(): void {
+    this.playlists = this.ps.index();
   }
 }

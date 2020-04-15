@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import Playlist from '../playlist/playlist';
-import PLAYLISTMOCK from '../playlist/playListMock';
+import Playlist from '../../playlist/Playlist';
+import { PlaylistService } from 'src/app/playlist/playlist.service';
 
 @Component({
   selector: 'app-playlist-selected',
@@ -11,17 +11,16 @@ import PLAYLISTMOCK from '../playlist/playListMock';
 export class PlaylistSelectedComponent implements OnInit {
 
   playlistId: number;
-  playListsMock = PLAYLISTMOCK;
   playlist: Playlist;
   isPlaying = false;
   idPlaying = -1;
   audio = new Audio();
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute, private ps: PlaylistService) { }
 
   ngOnInit(): void {
     this.playlistId = Number(this.route.snapshot.paramMap.get('id'));
-    this.playlist = this.playListsMock[this.playlistId];
+    this.playlist = this.ps.show(this.playlistId);
   }
 
   playMusic(musicPath, index) {
