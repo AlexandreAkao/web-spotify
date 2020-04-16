@@ -42,8 +42,8 @@ export class PlaylistSelectedComponent implements OnInit {
   }
 
   parseTime(time) {
-    let min = Math.trunc(time / 60);
-    let seg = time - min * 60;
+    const min = Math.trunc(time / 60);
+    const seg = time - min * 60;
 
     return `${min}:${String(seg).padStart(2, '0')}`;
   }

@@ -9,47 +9,51 @@
               </svg>
           </div>
       </div>
-      <span>Inscrever-se com seu endereço de e-mail</span>
-      <form>
-          <input type="text" class="info-1" placeholder="E-mail" name="" id="">
-          <input type="text" class="info-1" placeholder="Confirmar E-mail" name="" id="">
-          <input type="text" class="info-1" placeholder="Senha" name="" id="">
-          <input type="text" class="info-1" placeholder="Como devemos chamar você?" name="" id="">
+      <span class="subscribe-title">Inscrever-se com seu endereço de e-mail</span>
+      <form [formGroup]="checkoutForm" (ngSubmit)="submitUser(checkoutForm)" novalidate>
+          <input type="text" class="form-control info-1" placeholder="E-mail" formControlName="email">
+          <input type="text" class="form-control info-1" placeholder="Confirmar E-mail" formControlName="email_confirmation">
+          <input type="password" class="form-control info-1" placeholder="Senha" formControlName="password">
+          <input type="password" class="form-control info-1" placeholder="Confirmar Senha" formControlName="password_confirmation">
+          <input type="text" class="form-control info-1" placeholder="Como devemos chamar você?" formControlName="name">
           <div class="birth-container">
-              <input type="number" placeholder="Dia" min="1" max="31">
+							<span>Data de aniversário</span>
+							<div>
+								<input type="number" placeholder="Dia" min="1" max="31" formControlName="day">
 
-              <select>
-                  <option value="null" selected disabled hidden>Mês</option>
-                  <option value="janeiro">Janeiro</option>
-                  <option value="fevereiro">Fevereiro</option>
-                  <option value="março">Março</option>
-                  <option value="abril">Abril</option>
-                  <option value="maio">Maio</option>
-                  <option value="junho">Junho</option>
-                  <option value="julho">Julho</option>
-                  <option value="agosto">Agosto</option>
-                  <option value="setembro">Setembro</option>
-                  <option value="outubro">Outubro</option>
-                  <option value="novembro">Novembro</option>
-                  <option value="dezembro">Dezembro</option>
-              </select>
+								<select formControlName="month">
+										<option value="null" selected disabled hidden>Mês</option>
+										<option value="01">Janeiro</option>
+										<option value="02">Fevereiro</option>
+										<option value="03">Março</option>
+										<option value="04">Abril</option>
+										<option value="05">Maio</option>
+										<option value="06">Junho</option>
+										<option value="07">Julho</option>
+										<option value="08">Agosto</option>
+										<option value="09">Setembro</option>
+										<option value="10">Outubro</option>
+										<option value="11">Novembro</option>
+										<option value="12">Dezembro</option>
+								</select>
 
-              <input type="number" placeholder="Ano" min="1900" max="2020">
+								<input type="number" placeholder="Ano" min="1900" max="2020" formControlName="year">
+							</div>
 
           </div>
-          <!-- <input type="date" placeholder="MM/DD/YYYY" name="" id=""> -->
+          <!-- <input type="date" placeholder="MM/DD/YYYY" name="" formControlName=""> -->
           <div class="gender-container">
 
-              <input type="radio" value="masculino" name="gender" id="masculino">
+              <input type="radio" value="masculino" name="gender" formControlName="gender">
               <label for="masculino">Masculino</label>
 
-              <input type="radio" value="feminino" name="gender" id="feminino">
+              <input type="radio" value="feminino" name="gender" formControlName="gender">
               <label for="feminino">Feminino</label>
 
-              <input type="radio" value="notBinary" name="gender" id="notBinary">
+              <input type="radio" value="notBinary" name="gender" formControlName="gender">
               <label for="notBinary">Não binário</label>
           </div>
-          <button type="submit" class="button-submit-form">INSCREVER-SE</button>
+          <button type="submit" class="button button-submit-form">INSCREVER-SE</button>
       </form>
   </div>
 </div>

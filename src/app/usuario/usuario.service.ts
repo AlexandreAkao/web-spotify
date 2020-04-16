@@ -12,4 +12,8 @@ export class UsuarioService {
   create(usuario: Usuario) {
     UsuarioMock.push(usuario);
   }
+
+  index(): Usuario[] {
+    return UsuarioMock;
+  }
 }
