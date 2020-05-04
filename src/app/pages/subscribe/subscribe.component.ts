@@ -73,23 +73,41 @@ export class SubscribeComponent implements OnInit {
       duration: 2000,
     })
 
-    let size;
+    // this.us.index()
+    // .subscribe(resp => {
 
-    this.us.index()
-      .subscribe(resp => {
-        size = resp.length;
-        console.log(size)
-        console.log(resp)
-      })
+    //   this.us.create({
+    //     id: resp.length,
+    //     username: inputValue.name,
+    //     email: inputValue.email,
+    //     senha: inputValue.password,
+    //     dataDeNascimento: new Date(inputValue.year, inputValue.month, inputValue.day),
+    //     sexo: inputValue.gender
+    //   } as Usuario)
+    //   .subscribe(() => {
+    //     console.log(resp)
+    //   })
+    // })
 
-    this.us.create({
-      id: size,
-      username: inputValue.name,
-      email: inputValue.email,
-      senha: inputValue.password,
-      dataDeNascimento: new Date(inputValue.year, inputValue.month, inputValue.day),
-      sexo: inputValue.gender
-    } as Usuario).subscribe(resp => { console.log(resp) })
-
+    this.us.index().toPromise()
+    .then(res => {
+      {
+        this.us.create({
+          id: res.length,
+          username: inputValue.name,
+          email: inputValue.email,
+          senha: inputValue.password,
+          dataDeNascimento: new Date(inputValue.year, inputValue.month, inputValue.day),
+          sexo: inputValue.gender
+        } as Usuario).toPromise()
+      }
+    })
+    .then(() => {
+      this.us.index().subscribe(
+        res => {
+          console.log(res);
+        }
+      )
+    })
   }
 }

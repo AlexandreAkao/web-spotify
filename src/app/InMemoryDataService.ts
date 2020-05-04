@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { InMemoryDbService } from 'angular-in-memory-web-api';
+import { InMemoryDbService, RequestInfo, STATUS, ResponseOptions } from 'angular-in-memory-web-api';
 
 import playlist from '../app/playlist/Playlist';
 import musicMock from '../app/Music/MusicMock';
@@ -101,4 +101,38 @@ export class InMemoryDataService implements InMemoryDbService {
 
     return { playlists, usuarios };
   }
+
+  // post(requestInfo: RequestInfo) {
+  //   const collectionName = requestInfo.collectionName;
+
+  //   if (collectionName === 'usuarios') {
+  //     // Intercept POST calls to the 'somedatatype' collection:
+  //     // E.g. add some fields to our entity that would be set in the backend,
+  //     const data = requestInfo.utils.getJsonBody(requestInfo.req);
+  //     console.log(data)
+
+  //     const collection = requestInfo.collection;
+  //     data.extraField = 'hello';
+
+  //     // set id to next highest number
+  //     data.id = collection.map(item => item.id).reduce((cur, next) => cur > next ? cur : next) + 1;
+
+  //     // ... add the item to the collection
+  //     collection.push(data);
+
+  //     // forge the response
+  //     const options: ResponseOptions = {
+  //       body: { data  },
+  //       status: STATUS.OK,
+  //       headers: requestInfo.headers,
+  //       url: requestInfo.url
+  //     };
+
+  //     // use createResponse$ to return proper response
+  //     return requestInfo.utils.createResponse$(() => options);
+  //   }
+
+  //   // let the default POST handle all other collections by returning undefined
+  //   return undefined;
+  // }
 }
