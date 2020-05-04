@@ -64,6 +64,7 @@ div.playlist-selected-container div.playlist-info div.back-button span {
 
 div.playlist-selected-container div.playlist-info img.playlist-image {
   width: 500px;
+  height: 500px;
   border-radius: 50%;
   padding: 4px;
   background-color: rgba(29, 185, 84, 0.6);

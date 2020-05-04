@@ -20,7 +20,10 @@ export class PlaylistSelectedComponent implements OnInit {
 
   ngOnInit(): void {
     this.playlistId = Number(this.route.snapshot.paramMap.get('id'));
-    this.playlist = this.ps.show(this.playlistId);
+    this.ps.show(this.playlistId)
+      .subscribe(p => {
+        this.playlist = p;
+      });
   }
 
   playMusic(musicPath, index) {

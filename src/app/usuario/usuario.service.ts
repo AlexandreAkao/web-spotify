@@ -1,19 +1,26 @@
 import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs';
+
 import Usuario from './Usuario';
-import UsuarioMock from './UsuarioMock';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UsuarioService {
 
-  constructor() { }
+  httpOptions = {
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+  };
 
-  create(usuario: Usuario) {
-    UsuarioMock.push(usuario);
+  constructor(private http: HttpClient) { }
+
+  create(usuario: Usuario): Observable<Usuario> {
+    return this.http
+    .post<Usuario>(`api/usuarios`, usuario, this.httpOptions)
   }
 
-  index(): Usuario[] {
-    return UsuarioMock;
+  index(): Observable<Usuario[]> {
+    return this.http.get<Usuario[]>(`api/usuarios`);
   }
 }

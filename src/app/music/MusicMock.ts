@@ -2,7 +2,7 @@ import Music from './music';
 
 const MusicMock: Music[] = [
     new Music(
-        1,
+        0,
         'When We All Fall Asleep, Where Do We Go?',
         'bad guy',
         '',
@@ -20,7 +20,7 @@ const MusicMock: Music[] = [
         '../../../assets/music/Billie_Eilish-when_the_partys_over.mp3'
     ),
     new Music(
-        1,
+        2,
         'When We All Fall Asleep, Where Do We Go?',
         'everything i wanted',
         '',
@@ -29,7 +29,7 @@ const MusicMock: Music[] = [
         '../../../assets/music/Billie_Eilish-everything_i_wanted.mp3'
     ),
     new Music(
-        1,
+        3,
         'The Days / Nights',
         'The Nights',
         '',
@@ -38,7 +38,7 @@ const MusicMock: Music[] = [
         '../../../assets/music/avicii-the-nights.mp3'
     ),
     new Music(
-        1,
+        4,
         'The Days / Nights',
         'The Days',
         '',
@@ -47,7 +47,7 @@ const MusicMock: Music[] = [
         '../../../assets/music/avicii-the-days.mp3'
     ),
     new Music(
-        1,
+        5,
         '',
         '',
         '',
@@ -56,7 +56,7 @@ const MusicMock: Music[] = [
         ''
     ),
     new Music(
-        1,
+        6,
         'Recess',
         'All Is Fair In Love',
         '',
@@ -65,7 +65,7 @@ const MusicMock: Music[] = [
         '../../../assets/music/skrillex-all-is-fair-in-love.mp3'
     ),
     new Music(
-        1,
+        7,
         'Recess',
         'Recess',
         '',
@@ -74,7 +74,7 @@ const MusicMock: Music[] = [
         '../../../assets/music/skrillex-recess.mp3'
     ),
     new Music(
-        1,
+        8,
         'Recess',
         'Try It Out',
         '',
@@ -83,7 +83,7 @@ const MusicMock: Music[] = [
         '../../../assets/music/skrillex-try-it-out.mp3'
     ),
     new Music(
-        1,
+        9,
         'Recess',
         'Coast Is Clear',
         '',
@@ -92,7 +92,7 @@ const MusicMock: Music[] = [
         '../../../assets/music/skrillex-coast-is-clear.mp3'
     ),
     new Music(
-        1,
+        10,
         'Recess',
         'Fire Away',
         '',
@@ -101,7 +101,7 @@ const MusicMock: Music[] = [
         '../../../assets/music/skrillex-fire-away.mp3'
     ),
     new Music(
-        1,
+        11,
         'Recess',
         'Ease My Mind',
         '',
@@ -110,7 +110,7 @@ const MusicMock: Music[] = [
         '../../../assets/music/skrillex-ease-my-mind.mp3'
     ),
     new Music(
-        1,
+        12,
         'Recess',
         'Fuck That',
         '',
@@ -119,7 +119,7 @@ const MusicMock: Music[] = [
         '../../../assets/music/skrillex-fuck-that.mp3'
     ),
     new Music(
-        1,
+        13,
         'Recess',
         'Doompy Poomp',
         '',
@@ -128,7 +128,7 @@ const MusicMock: Music[] = [
         '../../../assets/music/skrillex-doompy-poomp.mp3'
     ),
     new Music(
-        1,
+        14,
         'Recess',
         'Ragga Bomb',
         '',

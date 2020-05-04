@@ -35,7 +35,6 @@ export class SubscribeComponent implements OnInit {
   }
 
   submitUser(form) {
-    console.log(this.us.index())
     const inputValue = form.value;
 
     if (inputValue.email !== "" && inputValue.email !== inputValue.email_confirmation) {
@@ -74,12 +73,23 @@ export class SubscribeComponent implements OnInit {
       duration: 2000,
     })
 
+    let size;
+
+    this.us.index()
+      .subscribe(resp => {
+        size = resp.length;
+        console.log(size)
+        console.log(resp)
+      })
+
     this.us.create({
+      id: size,
       username: inputValue.name,
       email: inputValue.email,
       senha: inputValue.password,
       dataDeNascimento: new Date(inputValue.year, inputValue.month, inputValue.day),
       sexo: inputValue.gender
-    });
+    } as Usuario).subscribe(resp => { console.log(resp) })
+
   }
 }

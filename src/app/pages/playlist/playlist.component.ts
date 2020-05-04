@@ -14,6 +14,10 @@ export class PlaylistComponent implements OnInit {
   constructor(private ps: PlaylistService) {}
 
   ngOnInit(): void {
-    this.playlists = this.ps.index();
+    this.ps.index().subscribe(
+      p => {
+        this.playlists = p;
+      }
+    );
   }
 }
