@@ -4,7 +4,7 @@
 
     <div class="playlist-info">
 
-      <div class="back-button" routerLink="/playlist">
+      <div class="back-button" routerLink="/playlist" (click)="backToPlaylists()">
 
         <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
           width="306px" viewBox="0 0 306 306" style="enable-background:new 0 0 306 306;" xml:space="preserve">
@@ -17,11 +17,11 @@
 
         <span>Voltar</span>
       </div>
-      <img class="playlist-image" src={{playlist.image}}>
-      <span>{{playlist.name}}</span>
+      <img *ngIf="playlist" class="playlist-image" src={{playlist.image}}>
+      <span *ngIf="playlist">{{playlist.name}}</span>
     </div>
 
-    <div class="music-list-container">
+    <div *ngIf="playlist" class="music-list-container">
 
       <div class="music-container" *ngFor="let music of playlist.musics; let i = index">
 

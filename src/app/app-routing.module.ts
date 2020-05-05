@@ -5,6 +5,7 @@ import { FaqComponent } from './pages/faq/faq.component';
 import { SubscribeComponent } from './pages/subscribe/subscribe.component';
 import { PlaylistComponent } from './pages/playlist/playlist.component';
 import { PlaylistSelectedComponent } from './pages/playlist-selected/playlist-selected.component';
+import { LoginComponent } from './pages/login/login.component';
 
 const routes: Routes = [
     { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -12,7 +13,8 @@ const routes: Routes = [
     { path: 'faq', component: FaqComponent },
     { path: 'subscribe', component: SubscribeComponent },
     { path: 'playlist', component: PlaylistComponent },
-    { path: 'playlist-selected/:id', component: PlaylistSelectedComponent}
+    { path: 'playlist-selected/:id', component: PlaylistSelectedComponent },
+    { path: 'login', component: LoginComponent }
 ];
 
 @NgModule({

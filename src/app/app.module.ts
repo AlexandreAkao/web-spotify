@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, APP_INITIALIZER } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
@@ -18,6 +18,7 @@ import { PlaylistSelectedComponent } from './pages/playlist-selected/playlist-se
 import { InMemoryDataService } from '../app/InMemoryDataService';
 import { JsonAppConfigService } from './config/json-app-config.service';
 import { AppConfig } from './config/app-config';
+import { LoginComponent } from './pages/login/login.component';
 
 export function initializerFn(jsonAppConfigService: JsonAppConfigService) {
   return () => {
@@ -34,11 +35,13 @@ export function initializerFn(jsonAppConfigService: JsonAppConfigService) {
     FaqComponent,
     SubscribeComponent,
     PlaylistComponent,
-    PlaylistSelectedComponent
+    PlaylistSelectedComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
     MaterialModule,

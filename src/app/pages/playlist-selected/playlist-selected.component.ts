@@ -50,4 +50,8 @@ export class PlaylistSelectedComponent implements OnInit {
 
     return `${min}:${String(seg).padStart(2, '0')}`;
   }
+
+  backToPlaylists() {
+    this.audio.pause();
+  }
 }

@@ -96,7 +96,14 @@ export class InMemoryDataService implements InMemoryDbService {
     ];
 
     const usuarios: usuario[] = [
-
+      {
+        id: 0,
+        username: "a",
+        email: "a",
+        senha: "a",
+        sexo: "masculino",
+        dataDeNascimento: new Date(12335)
+      }
     ];
 
     return { playlists, usuarios };
