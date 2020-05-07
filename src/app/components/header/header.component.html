@@ -24,9 +24,21 @@
             </div>
             <div>
                 <a routerLink="/subscribe">Inscrever-se</a>
+              <button (click)="show()">aaaaaaa</button>
+
             </div>
-            <div>
+            <div *ngIf="!isLogged()">
               <a routerLink="/login">Login</a>
+            </div>
+            <div *ngIf="isLogged()">
+              |
+            </div>
+            <div *ngIf="isLogged()" class="menu-login">
+              <a class="logged">{{usuario.username}}</a>
+              <div class="dropdown">
+                <a routerLink="">Perfil</a>
+                <a (click)="logout()">Sair</a>
+              </div>
             </div>
         </nav>
     </div>

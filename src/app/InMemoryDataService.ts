@@ -106,40 +106,66 @@ export class InMemoryDataService implements InMemoryDbService {
       }
     ];
 
-    return { playlists, usuarios };
+    const session: usuario[] = [
+
+    ]
+
+    return { playlists, usuarios, session };
   }
 
-  // post(requestInfo: RequestInfo) {
-  //   const collectionName = requestInfo.collectionName;
+  post(reqInfo: RequestInfo) {
+    if (reqInfo.collectionName === 'session') {
+      return this.authenticate(reqInfo)
+    }
 
-  //   if (collectionName === 'usuarios') {
-  //     // Intercept POST calls to the 'somedatatype' collection:
-  //     // E.g. add some fields to our entity that would be set in the backend,
-  //     const data = requestInfo.utils.getJsonBody(requestInfo.req);
-  //     console.log(data)
+    return undefined
+  }
 
-  //     const collection = requestInfo.collection;
-  //     data.extraField = 'hello';
 
-  //     // set id to next highest number
-  //     data.id = collection.map(item => item.id).reduce((cur, next) => cur > next ? cur : next) + 1;
+  private authenticate(reqInfo: RequestInfo) {
 
-  //     // ... add the item to the collection
-  //     collection.push(data);
+    return reqInfo.utils.createResponse$(() => {
+      const { headers, url, req } = reqInfo
 
-  //     // forge the response
-  //     const options: ResponseOptions = {
-  //       body: { data  },
-  //       status: STATUS.OK,
-  //       headers: requestInfo.headers,
-  //       url: requestInfo.url
-  //     };
+      let users = this.createDb().usuarios;
+      console.log(users)
+      const { username, password } = req['body']
 
-  //     // use createResponse$ to return proper response
-  //     return requestInfo.utils.createResponse$(() => options);
-  //   }
+      if (users.some(item => (item.username === username || item.email === username))) {
+        users = users.filter(
+          item => (item.senha === password && (item.username === username || item.email === username))
+        );
 
-  //   // let the default POST handle all other collections by returning undefined
-  //   return undefined;
-  // }
+        if (users.length !== 0) {
+
+          return {
+            status: 201,
+            headers,
+            url,
+            body: {
+              user: users[0]
+            }
+          }
+        } else {
+          return {
+            status: 401,
+            headers,
+            url,
+            body: {
+              error: "Não autorizado"
+            }
+          }
+        }
+      } else {
+        return {
+          status: 404,
+          headers,
+          url,
+          body: {
+            error: "Usuario não encontrado"
+          }
+        }
+      }
+    })
+  }
 }

@@ -28,7 +28,7 @@ a {
     color: white;
     font-size: 16px;
     transition: ease 0.1s;
-
+    align-items: center;
 }
 
 .navigation-container div {
@@ -39,4 +39,31 @@ a {
     color: rgb(29,185,84);
     cursor: pointer;
     transition: ease 0.1s;
+}
+
+.logged {
+  font-size: 32px;
+  cursor: pointer;
+}
+
+.dropdown {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 140px;
+  border: 1px solid black;
+  border-radius: 4px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown a {
+  color: black;
+  padding: 12px ;
+  text-decoration: none;
+  display: block;
+}
+
+.menu-login:hover .dropdown {
+  display: block;
 }

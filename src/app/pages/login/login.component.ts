@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { UsuarioService } from 'src/app/usuario/usuario.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
+import { SessionService } from 'src/app/session/session.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-login',
@@ -13,7 +14,12 @@ export class LoginComponent implements OnInit {
 
   loginForm: FormGroup;
 
-  constructor(private us: UsuarioService, private fb: FormBuilder, private snackBar: MatSnackBar, private route: Router) {
+  constructor(
+    private fb: FormBuilder,
+    private snackBar: MatSnackBar,
+    private route: Router,
+    private ss: SessionService
+  ) {
     this.createForm();
   }
 
@@ -30,15 +36,24 @@ export class LoginComponent implements OnInit {
   login(form) {
     const inputValues = form.value;
 
-    this.us.login(inputValues)
-    .then(res => {
-      if (res) {
+    this.ss.login(inputValues).toPromise()
+    .then(
+      usuario => {
+        localStorage.setItem("user", JSON.stringify(usuario));
         this.route.navigate(["home"])
-      } else {
-        this.snackBar.open("Email ou senha incorreta ou usuário não encontrado", "Fechar", {
-          duration: 2000,
-        })
       }
-    })
+    ).catch(
+      error => {
+        if (error.status === 401) {
+          this.snackBar.open("Email ou senha incorreta", "Fechar", {
+            duration: 2000,
+          })
+        } else if (error.status === 404) {
+          this.snackBar.open("Usuário não encontrado", "Fechar", {
+            duration: 2000,
+          })
+        }
+      }
+    )
   }
 }
