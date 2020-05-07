@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { InMemoryDbService, RequestInfo, STATUS, ResponseOptions } from 'angular-in-memory-web-api';
+import { InMemoryDbService, RequestInfo } from 'angular-in-memory-web-api';
 
 import playlist from '../app/playlist/Playlist';
 import musicMock from '../app/Music/MusicMock';
@@ -17,9 +17,7 @@ export class InMemoryDataService implements InMemoryDbService {
         '../../../assets/img/album/When_We_Fall_Asleep,_Where_Do_We_Go.png',
         'Billie Eilish',
         1,
-        [
-          musicMock[0], musicMock[1], musicMock[2]
-        ]
+        [musicMock[0], musicMock[1], musicMock[2]]
       ),
       new playlist(
         1,
@@ -27,9 +25,7 @@ export class InMemoryDataService implements InMemoryDbService {
         '../../../assets/img/album/the_days_nights.png',
         'Avicii',
         1,
-        [
-          musicMock[3], musicMock[4]
-        ]
+        [musicMock[3], musicMock[4]]
       ),
       new playlist(
         2,
@@ -37,9 +33,7 @@ export class InMemoryDataService implements InMemoryDbService {
         '../../../assets/img/album/eminem_curtain_call.jpg',
         '',
         1,
-        [
-          musicMock[5]
-        ]
+        [musicMock[5]]
       ),
       new playlist(
         3,
@@ -47,9 +41,7 @@ export class InMemoryDataService implements InMemoryDbService {
         '../../../assets/img/album/bk.webp',
         '',
         1,
-        [
-          musicMock[5]
-        ]
+        [musicMock[5]]
       ),
       new playlist(
         4,
@@ -57,9 +49,7 @@ export class InMemoryDataService implements InMemoryDbService {
         '../../../assets/img/album/2pac.jpg',
         '',
         1,
-        [
-          musicMock[5]
-        ]
+        [musicMock[5]]
       ),
       new playlist(
         5,
@@ -67,9 +57,7 @@ export class InMemoryDataService implements InMemoryDbService {
         '../../../assets/img/album/Kendrick_Lamar.jpg',
         '',
         1,
-        [
-          musicMock[5]
-        ]
+        [musicMock[5]]
       ),
       new playlist(
         6,
@@ -77,9 +65,7 @@ export class InMemoryDataService implements InMemoryDbService {
         '../../../assets/img/album/sidoka.jfif',
         '',
         1,
-        [
-          musicMock[5]
-        ]
+        [musicMock[5]]
       ),
       new playlist(
         7,
@@ -88,73 +74,80 @@ export class InMemoryDataService implements InMemoryDbService {
         'Skrillex',
         1,
         [
-          musicMock[6], musicMock[7], musicMock[8],
-          musicMock[9], musicMock[10], musicMock[11],
-          musicMock[12], musicMock[13], musicMock[14]
+          musicMock[6],
+          musicMock[7],
+          musicMock[8],
+          musicMock[9],
+          musicMock[10],
+          musicMock[11],
+          musicMock[12],
+          musicMock[13],
+          musicMock[14],
         ]
-      )
+      ),
     ];
 
     const usuarios: usuario[] = [
       {
         id: 0,
-        username: "a",
-        email: "a",
-        senha: "a",
-        sexo: "masculino",
-        dataDeNascimento: new Date(12335)
-      }
+        username: 'a',
+        email: 'a',
+        senha: 'a',
+        sexo: 'masculino',
+        dataDeNascimento: new Date(12335),
+      },
     ];
 
-    const session: usuario[] = [
-
-    ]
+    const session: usuario[] = [];
 
     return { playlists, usuarios, session };
   }
 
   post(reqInfo: RequestInfo) {
     if (reqInfo.collectionName === 'session') {
-      return this.authenticate(reqInfo)
+      return this.authenticate(reqInfo);
     }
 
-    return undefined
+    return undefined;
   }
 
-
   private authenticate(reqInfo: RequestInfo) {
-
     return reqInfo.utils.createResponse$(() => {
-      const { headers, url, req } = reqInfo
+      const { headers, url, req } = reqInfo;
 
       let users = this.createDb().usuarios;
-      console.log(users)
-      const { username, password } = req['body']
+      console.log(users);
+      const { username, password } = req['body'];
 
-      if (users.some(item => (item.username === username || item.email === username))) {
+      if (
+        users.some(
+          (item) => item.username === username || item.email === username
+        )
+      ) {
         users = users.filter(
-          item => (item.senha === password && (item.username === username || item.email === username))
+          (item) =>
+            item.senha === password &&
+            (item.username === username || item.email === username)
         );
 
         if (users.length !== 0) {
-
           return {
             status: 201,
             headers,
             url,
             body: {
-              user: users[0]
-            }
-          }
+              user: users[0],
+            },
+          };
         } else {
           return {
             status: 401,
             headers,
             url,
             body: {
-              error: "Não autorizado"
-            }
-          }
+              error: 'Não autorizado',
+            },
+          };
         }
       } else {
         return {
@@ -162,10 +155,10 @@ export class InMemoryDataService implements InMemoryDbService {
           headers,
           url,
           body: {
-            error: "Usuario não encontrado"
-          }
-        }
+            error: 'Usuario não encontrado',
+          },
+        };
       }
-    })
+    });
   }
 }

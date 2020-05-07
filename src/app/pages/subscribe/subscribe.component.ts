@@ -7,18 +7,20 @@ import Usuario from 'src/app/usuario/Usuario';
 @Component({
   selector: 'app-subscribe',
   templateUrl: './subscribe.component.html',
-  styleUrls: ['./subscribe.component.css']
+  styleUrls: ['./subscribe.component.css'],
 })
 export class SubscribeComponent implements OnInit {
-
   checkoutForm: FormGroup;
 
-  constructor(private us: UsuarioService, private fb: FormBuilder, private snackBar: MatSnackBar) {
+  constructor(
+    private us: UsuarioService,
+    private fb: FormBuilder,
+    private snackBar: MatSnackBar
+  ) {
     this.createForm();
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   createForm() {
     this.checkoutForm = this.fb.group({
@@ -30,48 +32,58 @@ export class SubscribeComponent implements OnInit {
       day: [0, Validators.required],
       month: [0, Validators.required],
       year: [0, Validators.required],
-      gender: ['', Validators.required]
+      gender: ['', Validators.required],
     });
   }
 
   submitUser(form) {
     const inputValue = form.value;
 
-    if (inputValue.email !== "" && inputValue.email !== inputValue.email_confirmation) {
-      this.snackBar.open("Email não coincidem", "Fechar", {
+    if (
+      inputValue.email !== '' &&
+      inputValue.email !== inputValue.email_confirmation
+    ) {
+      this.snackBar.open('Email não coincidem', 'Fechar', {
         duration: 2000,
-      })
+      });
 
       return;
     }
 
-    if (inputValue.password !== "" && inputValue.password !== inputValue.password_confirmation) {
-      this.snackBar.open("Senha não coincidem", "Fechar", {
+    if (
+      inputValue.password !== '' &&
+      inputValue.password !== inputValue.password_confirmation
+    ) {
+      this.snackBar.open('Senha não coincidem', 'Fechar', {
         duration: 2000,
-      })
+      });
 
       return;
     }
 
     if (form.invalid) {
-      this.snackBar.open("Preencha todos os campos", "Fechar", {
+      this.snackBar.open('Preencha todos os campos', 'Fechar', {
         duration: 2000,
-      })
+      });
 
       return;
     }
 
-    if (inputValue.day === 0 || inputValue.month === 0 || inputValue.year === 0) {
-      this.snackBar.open("Preencha a data de aniversário", "Fechar", {
+    if (
+      inputValue.day === 0 ||
+      inputValue.month === 0 ||
+      inputValue.year === 0
+    ) {
+      this.snackBar.open('Preencha a data de aniversário', 'Fechar', {
         duration: 2000,
-      })
+      });
 
       return;
     }
 
-    this.snackBar.open("Usuário criado com sucesso", "Fechar", {
+    this.snackBar.open('Usuário criado com sucesso', 'Fechar', {
       duration: 2000,
-    })
+    });
 
     // this.us.index()
     // .subscribe(resp => {
@@ -89,25 +101,31 @@ export class SubscribeComponent implements OnInit {
     //   })
     // })
 
-    this.us.index().toPromise()
-    .then(res => {
-      {
-        this.us.create({
-          id: res.length,
-          username: inputValue.name,
-          email: inputValue.email,
-          senha: inputValue.password,
-          dataDeNascimento: new Date(inputValue.year, inputValue.month, inputValue.day),
-          sexo: inputValue.gender
-        } as Usuario).toPromise()
-      }
-    })
-    .then(() => {
-      this.us.index().subscribe(
-        res => {
-          console.log(res);
+    this.us
+      .index()
+      .toPromise()
+      .then((res) => {
+        {
+          this.us
+            .create({
+              id: res.length,
+              username: inputValue.name,
+              email: inputValue.email,
+              senha: inputValue.password,
+              dataDeNascimento: new Date(
+                inputValue.year,
+                inputValue.month,
+                inputValue.day
+              ),
+              sexo: inputValue.gender,
+            } as Usuario)
+            .toPromise();
         }
-      )
-    })
+      })
+      .then(() => {
+        this.us.index().subscribe((res) => {
+          console.log(res);
+        });
+      });
   }
 }

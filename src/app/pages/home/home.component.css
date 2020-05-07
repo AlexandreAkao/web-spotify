@@ -1,21 +1,21 @@
 div.description-container {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    min-height: 100%;
-    overflow: auto;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  min-height: 100%;
+  overflow: auto;
 }
 
 div.description-container video {
-    width: 800px;
-    margin: 100px 0 0 0;
-    border-radius: 20px;
+  width: 800px;
+  margin: 100px 0 0 0;
+  border-radius: 20px;
 }
 
 div.description-container span {
-    text-align: center;
-    font-size: 20px;
-    color: white;
-    width: 1000px;
-    margin: 40px 0;
+  text-align: center;
+  font-size: 20px;
+  color: white;
+  width: 1000px;
+  margin: 40px 0;
 }

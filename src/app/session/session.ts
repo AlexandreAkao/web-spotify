@@ -1,2 +1,1 @@
-export interface Session {
-}
+export interface Session {}

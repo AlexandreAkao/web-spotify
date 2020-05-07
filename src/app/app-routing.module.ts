@@ -8,18 +8,17 @@ import { PlaylistSelectedComponent } from './pages/playlist-selected/playlist-se
 import { LoginComponent } from './pages/login/login.component';
 
 const routes: Routes = [
-    { path: '', redirectTo: '/home', pathMatch: 'full' },
-    { path: 'home', component: HomeComponent },
-    { path: 'faq', component: FaqComponent },
-    { path: 'subscribe', component: SubscribeComponent },
-    { path: 'playlist', component: PlaylistComponent },
-    { path: 'playlist-selected/:id', component: PlaylistSelectedComponent },
-    { path: 'login', component: LoginComponent }
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: 'home', component: HomeComponent },
+  { path: 'faq', component: FaqComponent },
+  { path: 'subscribe', component: SubscribeComponent },
+  { path: 'playlist', component: PlaylistComponent },
+  { path: 'playlist-selected/:id', component: PlaylistSelectedComponent },
+  { path: 'login', component: LoginComponent },
 ];
 
 @NgModule({
-    imports: [RouterModule.forRoot(routes)],
-    exports: [RouterModule]
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule],
 })
-
 export class AppRoutingModule {}

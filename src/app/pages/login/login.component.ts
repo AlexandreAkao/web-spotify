@@ -8,10 +8,9 @@ import { Observable } from 'rxjs';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
-
   loginForm: FormGroup;
 
   constructor(
@@ -23,37 +22,35 @@ export class LoginComponent implements OnInit {
     this.createForm();
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   createForm() {
     this.loginForm = this.fb.group({
       username: ['', Validators.required],
-      password: ['', Validators.required]
+      password: ['', Validators.required],
     });
   }
 
   login(form) {
     const inputValues = form.value;
 
-    this.ss.login(inputValues).toPromise()
-    .then(
-      usuario => {
-        localStorage.setItem("user", JSON.stringify(usuario));
-        this.route.navigate(["home"])
-      }
-    ).catch(
-      error => {
+    this.ss
+      .login(inputValues)
+      .toPromise()
+      .then((usuario) => {
+        localStorage.setItem('user', JSON.stringify(usuario));
+        this.route.navigate(['home']);
+      })
+      .catch((error) => {
         if (error.status === 401) {
-          this.snackBar.open("Email ou senha incorreta", "Fechar", {
+          this.snackBar.open('Email ou senha incorreta', 'Fechar', {
             duration: 2000,
-          })
+          });
         } else if (error.status === 404) {
-          this.snackBar.open("Usuário não encontrado", "Fechar", {
+          this.snackBar.open('Usuário não encontrado', 'Fechar', {
             duration: 2000,
-          })
+          });
         }
-      }
-    )
+      });
   }
 }

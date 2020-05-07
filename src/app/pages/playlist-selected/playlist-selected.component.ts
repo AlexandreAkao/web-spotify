@@ -6,28 +6,25 @@ import { PlaylistService } from 'src/app/playlist/playlist.service';
 @Component({
   selector: 'app-playlist-selected',
   templateUrl: './playlist-selected.component.html',
-  styleUrls: ['./playlist-selected.component.css']
+  styleUrls: ['./playlist-selected.component.css'],
 })
 export class PlaylistSelectedComponent implements OnInit {
-
   playlistId: number;
   playlist: Playlist;
   isPlaying = false;
   idPlaying = -1;
   audio = new Audio();
 
-  constructor(private route: ActivatedRoute, private ps: PlaylistService) { }
+  constructor(private route: ActivatedRoute, private ps: PlaylistService) {}
 
   ngOnInit(): void {
     this.playlistId = Number(this.route.snapshot.paramMap.get('id'));
-    this.ps.show(this.playlistId)
-      .subscribe(p => {
-        this.playlist = p;
-      });
+    this.ps.show(this.playlistId).subscribe((p) => {
+      this.playlist = p;
+    });
   }
 
   playMusic(musicPath, index) {
-
     const icon = document.getElementsByClassName('play-pause-button');
 
     if (this.isPlaying) {

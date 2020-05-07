@@ -23,7 +23,7 @@ import { LoginComponent } from './pages/login/login.component';
 export function initializerFn(jsonAppConfigService: JsonAppConfigService) {
   return () => {
     return jsonAppConfigService.load();
-  }
+  };
 }
 
 @NgModule({
@@ -36,7 +36,7 @@ export function initializerFn(jsonAppConfigService: JsonAppConfigService) {
     SubscribeComponent,
     PlaylistComponent,
     PlaylistSelectedComponent,
-    LoginComponent
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -46,7 +46,7 @@ export function initializerFn(jsonAppConfigService: JsonAppConfigService) {
     BrowserAnimationsModule,
     MaterialModule,
     HttpClientModule,
-    HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService)
+    HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService),
   ],
   providers: [
     // {
@@ -61,6 +61,6 @@ export function initializerFn(jsonAppConfigService: JsonAppConfigService) {
     //   useFactory: initializerFn
     // }
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

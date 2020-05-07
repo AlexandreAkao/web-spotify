@@ -1,18 +1,18 @@
 @keyframes pulse {
-	0% {
-		transform: scale(1.01);
-		box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.7);
-	}
+  0% {
+    transform: scale(1.01);
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.7);
+  }
 
-	50% {
-		transform: scale(1);
-		box-shadow: 0 0 0 5px rgba(0, 0, 0, 0);
-	}
+  50% {
+    transform: scale(1);
+    box-shadow: 0 0 0 5px rgba(0, 0, 0, 0);
+  }
 
-	100% {
-		transform: scale(1.01);
-		box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
-	}
+  100% {
+    transform: scale(1.01);
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+  }
 }
 
 div.playlist-selected-content {
@@ -58,6 +58,7 @@ div.playlist-selected-container div.playlist-info div.back-button svg {
   fill: #fff;
   width: 20px;
 }
+
 div.playlist-selected-container div.playlist-info div.back-button span {
   font-size: 16px;
 }
@@ -95,7 +96,7 @@ div.music-container {
 
 div.music-container:hover {
   transform: scale(1);
-	animation: pulse 3s infinite;
+  animation: pulse 3s infinite;
 }
 
 div.music-container div.play-info-container {

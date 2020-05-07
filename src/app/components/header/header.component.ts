@@ -1,23 +1,21 @@
 import { Component, OnInit } from '@angular/core';
 import { SessionService } from 'src/app/session/session.service';
 import Usuario from 'src/app/usuario/Usuario';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css']
+  styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent implements OnInit {
-
   usuario: Usuario;
 
-    constructor(public ss: SessionService) { }
+  constructor(public ss: SessionService) {}
 
   ngOnInit(): void {}
 
-  isLogged() {
-    let user = JSON.parse(localStorage.getItem("user"));
+  isLogged(): boolean {
+    const user = JSON.parse(localStorage.getItem('user'));
 
     if (user) {
       this.usuario = user.user;
@@ -28,20 +26,18 @@ export class HeaderComponent implements OnInit {
     }
   }
 
-  logout() {
-    this.ss.logout().subscribe(
-      () => {
-        localStorage.removeItem("user");
-      }
-    );
+  logout(): void {
+    this.ss.logout().subscribe(() => {
+      localStorage.removeItem('user');
+    });
   }
 
-  show() {
-    this.ss.isLoggedIn().toPromise()
-    .then(
-      res => {
-        console.log(res)
-      }
-    )
+  show(): void {
+    this.ss
+      .isLoggedIn()
+      .toPromise()
+      .then((res) => {
+        console.log(res);
+      });
   }
 }

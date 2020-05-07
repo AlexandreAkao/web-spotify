@@ -1,51 +1,51 @@
 div.playlist-container {
-    /* background-color: rgba(36, 36, 36, 0.7); */
-    max-width: 1200px;
-    margin: 50px auto;
-    min-height: 100%;
+  /* background-color: rgba(36, 36, 36, 0.7); */
+  max-width: 1200px;
+  margin: 50px auto;
+  min-height: 100%;
 }
 
 div.playlist-container span.title {
-    color: white;
-    font-size: 32px;
-    font-weight: 500;
+  color: white;
+  font-size: 32px;
+  font-weight: 500;
 }
 
 div.playlist-container div.list-playlist-container {
-    margin: 40px 0;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+  margin: 40px 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
 div.playlist-container div.playlistbox-container {
-    cursor: pointer;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
-    align-items: center;
-    justify-self: center;
-    background-color: rgba(0, 0, 0, 0.8);
-    border-radius: 8px;
-    margin: 10px 0;
-    padding: 16px 10px;
-    width: 250px;
-    transition: 0.1s ease;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  justify-self: center;
+  background-color: rgba(0, 0, 0, 0.8);
+  border-radius: 8px;
+  margin: 10px 0;
+  padding: 16px 10px;
+  width: 250px;
+  transition: 0.1s ease;
 }
 
 div.playlist-container div.playlistbox-container:hover {
-    background-color: rgba(0, 0, 0, 0.6);
-    transition: 0.1s ease;
-    width: 270px;
+  background-color: rgba(0, 0, 0, 0.6);
+  transition: 0.1s ease;
+  width: 270px;
 }
 
 div.playlist-container div.playlistbox-container img {
-    width: 200px;
+  width: 200px;
 }
 
 div.playlist-container div.playlistbox-container span {
-    margin-top: 10px;
-    color: white;
-    width: 200px;
-    font-weight: 700;
+  margin-top: 10px;
+  color: white;
+  width: 200px;
+  font-weight: 700;
 }

@@ -1,44 +1,44 @@
 a {
-    text-decoration: none;
-    color: white;
-    transition: ease 0.1s;
+  text-decoration: none;
+  color: white;
+  transition: ease 0.1s;
 }
 
 .header-container {
-    width: 100%;
-    background-color: rgba(0, 0, 0, 0.6);
-    height: 64px;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 }
 
 .header-container .spotify-icon {
-    width: 104px;
+  width: 104px;
 }
 
 .header-container .spotify-icon:hover path {
-    fill: rgb(29,185,84);
-    transition: ease 0.1s;
+  fill: rgb(29, 185, 84);
+  transition: ease 0.1s;
 }
 
 .navigation-container {
-    display: flex;
-    font-weight: 500;
-    color: white;
-    font-size: 16px;
-    transition: ease 0.1s;
-    align-items: center;
+  display: flex;
+  font-weight: 500;
+  color: white;
+  font-size: 16px;
+  transition: ease 0.1s;
+  align-items: center;
 }
 
 .navigation-container div {
-    padding: 0 20px;
+  padding: 0 20px;
 }
 
 .navigation-container a:hover {
-    color: rgb(29,185,84);
-    cursor: pointer;
-    transition: ease 0.1s;
+  color: rgb(29, 185, 84);
+  cursor: pointer;
+  transition: ease 0.1s;
 }
 
 .logged {
@@ -53,13 +53,13 @@ a {
   min-width: 140px;
   border: 1px solid black;
   border-radius: 4px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
 }
 
 .dropdown a {
   color: black;
-  padding: 12px ;
+  padding: 12px;
   text-decoration: none;
   display: block;
 }

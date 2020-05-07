@@ -5,15 +5,14 @@ import { Observable } from 'rxjs';
 import Usuario from './Usuario';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class UsuarioService {
-
   httpOptions = {
-    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
   };
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   create(usuario: Usuario): Observable<Usuario> {
     return this.http.post<Usuario>(`api/usuarios`, usuario, this.httpOptions);

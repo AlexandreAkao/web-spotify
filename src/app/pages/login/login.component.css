@@ -3,63 +3,63 @@ div.subscribe-content-container {
 }
 
 div.subscribe-container {
-    display: flex;
-    background-color: rgba(36, 36, 36, 0.822);
-    max-width: 900px;
-    margin: 60px auto;
-    border-radius: 8px;
-    flex-direction: column;
-    align-items: center;
-    color: #FFF;
-    padding: 20px;
+  display: flex;
+  background-color: rgba(36, 36, 36, 0.822);
+  max-width: 900px;
+  margin: 60px auto;
+  border-radius: 8px;
+  flex-direction: column;
+  align-items: center;
+  color: #FFF;
+  padding: 20px;
 }
 
 div.subscribe-container .icon-container {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    border-bottom: 1px solid white;
-    margin-bottom: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  border-bottom: 1px solid white;
+  margin-bottom: 20px;
 }
 
 div.subscribe-container .spotify-icon {
-    width: 200px;
-    margin-bottom: 20px;
+  width: 200px;
+  margin-bottom: 20px;
 }
 
 div.subscribe-container span {
-    font-size: 28px;
-    margin: 20px 0;
+  font-size: 28px;
+  margin: 20px 0;
 }
 
 div.subscribe-container form {
-    align-items: center;
-    align-content: center;
-    display: flex;
-    flex-direction: column;
-    margin-top: 20px;
+  align-items: center;
+  align-content: center;
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
 }
 
 div.subscribe-container form input.info-1 {
-    min-width: 600px;
-    min-height: 40px;
-    font-size: 20px;
-    margin-bottom: 20px;
-    padding: 8px;
+  min-width: 600px;
+  min-height: 40px;
+  font-size: 20px;
+  margin-bottom: 20px;
+  padding: 8px;
 }
 
 button.button-submit-form {
-    background-color: #4CAF50;
-    padding: 20px 80px;
-    border-radius: 20px;
-    color: #FFF;
-    cursor: pointer;
-    font-size: 18px;
-    margin: 20px 0;
-    transition: 0.1s ease;
+  background-color: #4CAF50;
+  padding: 20px 80px;
+  border-radius: 20px;
+  color: #FFF;
+  cursor: pointer;
+  font-size: 18px;
+  margin: 20px 0;
+  transition: 0.1s ease;
 }
 
 button.button-submit-form:hover {
-    background-color: rgba(76, 175, 79, 0.507);
-    transition: 0.1s ease;
+  background-color: rgba(76, 175, 79, 0.507);
+  transition: 0.1s ease;
 }

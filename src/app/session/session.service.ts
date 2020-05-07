@@ -4,19 +4,18 @@ import { Observable } from 'rxjs';
 import Usuario from '../usuario/Usuario';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class SessionService {
-
   httpOptions = {
-    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
   };
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
-  login(info: { username: string, password: string }): Observable<Usuario> {
+  login(info: { username: string; password: string }): Observable<Usuario> {
     return this.http.post<Usuario>('api/session', info, this.httpOptions);
-   }
+  }
 
   logout() {
     return this.http.delete('api/session/0');
