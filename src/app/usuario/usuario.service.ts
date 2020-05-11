@@ -21,4 +21,12 @@ export class UsuarioService {
   index(): Observable<Usuario[]> {
     return this.http.get<Usuario[]>(`api/usuarios`);
   }
+
+  show(i: Number): Observable<Usuario> {
+    return this.http.get<Usuario>(`api/usuarios/${i}`);
+  }
+
+  update(i: Number, info: {}): Observable<Usuario> {
+    return this.http.put<Usuario>(`api/usuarios/${i}`, info);
+  }
 }

@@ -34,14 +34,12 @@ export class LoginComponent implements OnInit {
   login(form) {
     const inputValues = form.value;
 
-    this.ss
-      .login(inputValues)
-      .toPromise()
-      .then((usuario) => {
+    this.ss.login(inputValues).subscribe(
+      (usuario) => {
         localStorage.setItem('user', JSON.stringify(usuario));
         this.route.navigate(['home']);
-      })
-      .catch((error) => {
+      },
+      (error) => {
         if (error.status === 401) {
           this.snackBar.open('Email ou senha incorreta', 'Fechar', {
             duration: 2000,
@@ -51,6 +49,7 @@ export class LoginComponent implements OnInit {
             duration: 2000,
           });
         }
-      });
+      }
+    );
   }
 }

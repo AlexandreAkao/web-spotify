@@ -1,0 +1,91 @@
+<div class="profile-page">
+  <div *ngIf="user" class="profile-container">
+    <span class="profile-title">Perfil</span>
+    <div *ngIf="!edited" class="profile-info-container">
+      <div class="profile-info">
+        <span>Nome: </span>
+        {{user.username}}
+      </div>
+      <div class="profile-info">
+        <span>Email: </span>
+        {{user.email}}
+      </div>
+      <div class="profile-info">
+        <span>Data de nascimento: </span>
+        {{user.dataDeNascimento | date:'dd/MM/yyyy'}}
+      </div>
+      <div class="button-container">
+        <button *ngIf="!edited" (click)="editable(true)" type="button" class="button button-submit-form">Editar</button>
+      </div>
+    </div>
+    <div *ngIf="edited" class="profile-info-container">
+      <form [formGroup]="updatedForm" (ngSubmit)="updateUser(updatedForm)" novalidate>
+        <div class="profile-info">
+          <span>Nome: </span>
+          <input type="text" class="info-1" placeholder="Nome" formControlName="username">
+        </div>
+        <div class="profile-info">
+          <span>Email: </span>
+          <input type="text" class="info-1" placeholder="Email" formControlName="email">
+        </div>
+        <div class="profile-info-pass">
+          <span>Mudar senha? </span>
+          <div class="pass_updated">
+            <label for="change_pass">Sim</label>
+            <input type="checkbox" name="change_pass" id="change_pass" formControlName="changePassword">
+          </div>
+        </div>
+        <div class="profile-info password-info">
+          <input class="info-1" type="password" class="form-control info-1" placeholder="Senha velha"
+            [attr.disabled]="updatedForm.value.changePassword ? null : ''" formControlName="old_password">
+          <input class="info-1" type="password" class="form-control info-1" placeholder="Nova senha"
+            [attr.disabled]="updatedForm.value.changePassword ? null : ''" formControlName="password">
+          <input class="info-1" type="password" class="form-control info-1" placeholder="Confirmar Senha"
+            [attr.disabled]="updatedForm.value.changePassword ? null : ''" formControlName="password_confirmation">
+        </div>
+        <div class="profile-info">
+          <div class="birth-container">
+            <span>Data de aniversário: </span>
+            <div>
+              <input type="number" placeholder="Dia" min="1" max="31" formControlName="day">
+
+              <select formControlName="month">
+                <option value="null" selected disabled hidden>Mês</option>
+                <option value="01">Janeiro</option>
+                <option value="02">Fevereiro</option>
+                <option value="03">Março</option>
+                <option value="04">Abril</option>
+                <option value="05">Maio</option>
+                <option value="06">Junho</option>
+                <option value="07">Julho</option>
+                <option value="08">Agosto</option>
+                <option value="09">Setembro</option>
+                <option value="10">Outubro</option>
+                <option value="11">Novembro</option>
+                <option value="12">Dezembro</option>
+              </select>
+
+              <input type="number" placeholder="Ano" min="1900" max="2020" formControlName="year">
+            </div>
+          </div>
+        </div>
+        <div class="gender-container">
+
+          <input type="radio" value="masculino" name="gender" formControlName="gender">
+          <label for="masculino">Masculino</label>
+
+          <input type="radio" value="feminino" name="gender" formControlName="gender">
+          <label for="feminino">Feminino</label>
+
+          <input type="radio" value="notBinary" name="gender" formControlName="gender">
+          <label for="notBinary">Não binário</label>
+        </div>
+        <div class="button-container">
+          <button *ngIf="edited" (click)="editable(false)" type="button"
+            class="button button-submit-form">Cancelar</button>
+          <button *ngIf="edited" type="submit" class="button button-submit-form">Salvar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

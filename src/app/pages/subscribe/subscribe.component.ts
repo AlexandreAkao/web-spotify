@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { UsuarioService } from 'src/app/usuario/usuario.service';
 import Usuario from 'src/app/usuario/Usuario';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-subscribe',
@@ -15,6 +16,7 @@ export class SubscribeComponent implements OnInit {
   constructor(
     private us: UsuarioService,
     private fb: FormBuilder,
+    private route: Router,
     private snackBar: MatSnackBar
   ) {
     this.createForm();
@@ -85,22 +87,6 @@ export class SubscribeComponent implements OnInit {
       duration: 2000,
     });
 
-    // this.us.index()
-    // .subscribe(resp => {
-
-    //   this.us.create({
-    //     id: resp.length,
-    //     username: inputValue.name,
-    //     email: inputValue.email,
-    //     senha: inputValue.password,
-    //     dataDeNascimento: new Date(inputValue.year, inputValue.month, inputValue.day),
-    //     sexo: inputValue.gender
-    //   } as Usuario)
-    //   .subscribe(() => {
-    //     console.log(resp)
-    //   })
-    // })
-
     this.us
       .index()
       .toPromise()
@@ -124,6 +110,7 @@ export class SubscribeComponent implements OnInit {
       })
       .then(() => {
         this.us.index().subscribe((res) => {
+          this.route.navigate(['home']);
           console.log(res);
         });
       });

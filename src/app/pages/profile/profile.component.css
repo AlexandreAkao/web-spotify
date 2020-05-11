@@ -1,0 +1,122 @@
+.profile-page {
+  min-height: 100%;
+
+}
+
+div.profile-container {
+  display: flex;
+  background-color: rgba(36, 36, 36, 0.822);
+  max-width: 900px;
+  margin: 60px auto;
+  border-radius: 8px;
+  flex-direction: column;
+  color: #FFF;
+  padding: 20px;
+}
+
+span.profile-title {
+  font-size: 50px;
+}
+
+div.profile-info-container {
+  margin-top: 32px;
+  font-size: 20px;
+}
+
+div.profile-info {
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: 18px;
+}
+
+div.button-container {
+  margin-top: 20px;
+
+}
+
+button.button-submit-form {
+  background-color: #4CAF50;
+  padding: 20px 40px;
+  border-radius: 20px;
+  color: #FFF;
+  cursor: pointer;
+  font-size: 18px;
+  margin: 20px 0 0 0;
+  transition: 0.1s ease;
+}
+
+button.button-submit-form:hover {
+  background-color: rgba(76, 175, 79, 0.507);
+  transition: 0.1s ease;
+}
+
+input.info-1 {
+  min-width: 600px;
+  min-height: 40px;
+  font-size: 20px;
+  margin-bottom: 20px;
+  padding: 8px;
+}
+
+div.birth-container {
+  display: flex;
+  width: 100%;
+  margin-bottom: 20px;
+  justify-content: space-evenly;
+  flex-direction: column;
+}
+
+div.birth-container span {
+  font-size: 20px;
+  margin: 0 0 8px 0;
+}
+
+div.birth-container div {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+div.birth-container input,
+select {
+  max-height: 20px !important;
+  min-height: 40px;
+  padding: 0 20px;
+}
+
+div.birth-container select[value="null"] {
+  color: #757575;
+}
+
+div.gender-container {
+  font-size: 16px;
+  display: flex;
+  justify-content: center;
+}
+
+div.gender-container input {
+  min-width: 100px;
+  min-height: 24px;
+}
+
+div.profile-info-pass {
+  display: flex;
+  margin-bottom: 20px;
+  min-width: 600px;
+  min-height: 40px;
+  align-items: center;
+  flex-direction: column;
+}
+
+div.password-info {
+  justify-content: center;
+  flex-direction: column;
+}
+
+.info-1:disabled {
+  background: rgb(152, 181, 153);
+}
+
+div.button-container {
+  display: flex;
+  justify-content: space-evenly;
+}

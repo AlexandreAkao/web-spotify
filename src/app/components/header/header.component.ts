@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SessionService } from 'src/app/session/session.service';
 import Usuario from 'src/app/usuario/Usuario';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -10,7 +11,7 @@ import Usuario from 'src/app/usuario/Usuario';
 export class HeaderComponent implements OnInit {
   usuario: Usuario;
 
-  constructor(public ss: SessionService) {}
+  constructor(public ss: SessionService, private route: Router) {}
 
   ngOnInit(): void {}
 
@@ -29,15 +30,7 @@ export class HeaderComponent implements OnInit {
   logout(): void {
     this.ss.logout().subscribe(() => {
       localStorage.removeItem('user');
+      this.route.navigate(['home']);
     });
-  }
-
-  show(): void {
-    this.ss
-      .isLoggedIn()
-      .toPromise()
-      .then((res) => {
-        console.log(res);
-      });
   }
 }
