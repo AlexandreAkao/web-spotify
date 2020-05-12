@@ -12,6 +12,14 @@
   </div>
   <div>
     <nav class="navigation-container">
+      <div class="search-container">
+        <div>
+          <input class="input-search" [(ngModel)]="inputSearch" (keypress)="keyPress($event)" type="text"
+            placeholder="Pesquisa">
+          <img routerLink="/music" [queryParams]="{search: inputSearch}" src=" ../../../assets/img/search-24px.svg"
+            alt="search-icon">
+        </div>
+      </div>
       <div>
         <a routerLink="/home">Home</a>
       </div>
@@ -19,7 +27,7 @@
         <a routerLink="/faq">FAQ</a>
       </div>
       <div>
-        <a href="https://www.spotify.com/download" target="_blank">Baixar</a>
+        <a href="https://download.scdn.co/SpotifySetup.exe" target="_blank">Baixar</a>
       </div>
       <div>
         <a routerLink="/playlist">Playlist</a>
@@ -37,6 +45,7 @@
         <a class="logged">{{usuario.username}}</a>
         <div class="dropdown">
           <a routerLink="/profile">Perfil</a>
+          <a routerLink="/user-playlist">Playlists</a>
           <a (click)="logout()">Sair</a>
         </div>
       </div>

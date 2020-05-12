@@ -1,15 +1,145 @@
 import { Injectable } from '@angular/core';
 import { InMemoryDbService, RequestInfo } from 'angular-in-memory-web-api';
 
+import diacriticSensitiveRegex from '../util/diacriticSensitiveRegex';
 import playlist from '../app/playlist/Playlist';
-import musicMock from '../app/Music/MusicMock';
 import usuario from '../app/usuario/Usuario';
-import { Session } from '../app/session/session';
+import Music from './music/Music';
 
 @Injectable({
   providedIn: 'root',
 })
 export class InMemoryDataService implements InMemoryDbService {
+  musics: Music[] = [
+    new Music(
+      0,
+      'When We All Fall Asleep, Where Do We Go?',
+      'bad guy',
+      '',
+      'Billie Eilish',
+      206,
+      '../../../assets/music/Billie_Eilish-bad_guy.mp3'
+    ),
+    new Music(
+      1,
+      'When We All Fall Asleep, Where Do We Go?',
+      "when the party's over",
+      '',
+      'Billie Eilish',
+      194,
+      '../../../assets/music/Billie_Eilish-when_the_partys_over.mp3'
+    ),
+    new Music(
+      2,
+      'When We All Fall Asleep, Where Do We Go?',
+      'everything i wanted',
+      '',
+      'Billie Eilish',
+      288,
+      '../../../assets/music/Billie_Eilish-everything_i_wanted.mp3'
+    ),
+    new Music(
+      3,
+      'The Days / Nights',
+      'The Nights',
+      '',
+      'Avicii',
+      186,
+      '../../../assets/music/avicii-the-nights.mp3'
+    ),
+    new Music(
+      4,
+      'The Days / Nights',
+      'The Days',
+      '',
+      'Avicii',
+      282,
+      '../../../assets/music/avicii-the-days.mp3'
+    ),
+    new Music(5, '', '', '', '', 1, ''),
+    new Music(
+      6,
+      'Recess',
+      'All Is Fair In Love',
+      '',
+      'Skrillex',
+      249,
+      '../../../assets/music/skrillex-all-is-fair-in-love.mp3'
+    ),
+    new Music(
+      7,
+      'Recess',
+      'Recess',
+      '',
+      'Skrillex',
+      238,
+      '../../../assets/music/skrillex-recess.mp3'
+    ),
+    new Music(
+      8,
+      'Recess',
+      'Try It Out',
+      '',
+      'Skrillex',
+      235,
+      '../../../assets/music/skrillex-try-it-out.mp3'
+    ),
+    new Music(
+      9,
+      'Recess',
+      'Coast Is Clear',
+      '',
+      'Skrillex',
+      243,
+      '../../../assets/music/skrillex-coast-is-clear.mp3'
+    ),
+    new Music(
+      10,
+      'Recess',
+      'Fire Away',
+      '',
+      'Skrillex',
+      351,
+      '../../../assets/music/skrillex-fire-away.mp3'
+    ),
+    new Music(
+      11,
+      'Recess',
+      'Ease My Mind',
+      '',
+      'Skrillex',
+      302,
+      '../../../assets/music/skrillex-ease-my-mind.mp3'
+    ),
+    new Music(
+      12,
+      'Recess',
+      'Fuck That',
+      '',
+      'Skrillex',
+      314,
+      '../../../assets/music/skrillex-fuck-that.mp3'
+    ),
+    new Music(
+      13,
+      'Recess',
+      'Doompy Poomp',
+      '',
+      'Skrillex',
+      198,
+      '../../../assets/music/skrillex-doompy-poomp.mp3'
+    ),
+    new Music(
+      14,
+      'Recess',
+      'Ragga Bomb',
+      '',
+      'Skrillex',
+      267,
+      '../../../assets/music/skrillex-ragga-bomb.mp3'
+    ),
+  ];
+
   playlists: playlist[] = [
     new playlist(
       0,
@@ -17,7 +147,9 @@ export class InMemoryDataService implements InMemoryDbService {
       '../../../assets/img/album/When_We_Fall_Asleep,_Where_Do_We_Go.png',
       'Billie Eilish',
       1,
-      [musicMock[0], musicMock[1], musicMock[2]]
+      [this.musics[0], this.musics[1], this.musics[2]],
+      false,
+      0
     ),
     new playlist(
       1,
@@ -25,7 +157,9 @@ export class InMemoryDataService implements InMemoryDbService {
       '../../../assets/img/album/the_days_nights.png',
       'Avicii',
       1,
-      [musicMock[3], musicMock[4]]
+      [this.musics[3], this.musics[4]],
+      false,
+      0
     ),
     new playlist(
       2,
@@ -33,7 +167,9 @@ export class InMemoryDataService implements InMemoryDbService {
       '../../../assets/img/album/eminem_curtain_call.jpg',
       '',
       1,
-      [musicMock[5]]
+      [this.musics[5]],
+      false,
+      0
     ),
     new playlist(
       3,
@@ -41,7 +177,9 @@ export class InMemoryDataService implements InMemoryDbService {
       '../../../assets/img/album/bk.webp',
       '',
       1,
-      [musicMock[5]]
+      [this.musics[5]],
+      false,
+      0
     ),
     new playlist(
       4,
@@ -49,7 +187,9 @@ export class InMemoryDataService implements InMemoryDbService {
       '../../../assets/img/album/2pac.jpg',
       '',
       1,
-      [musicMock[5]]
+      [this.musics[5]],
+      false,
+      0
     ),
     new playlist(
       5,
@@ -57,7 +197,9 @@ export class InMemoryDataService implements InMemoryDbService {
       '../../../assets/img/album/Kendrick_Lamar.jpg',
       '',
       1,
-      [musicMock[5]]
+      [this.musics[5]],
+      false,
+      0
     ),
     new playlist(
       6,
@@ -65,7 +207,9 @@ export class InMemoryDataService implements InMemoryDbService {
       '../../../assets/img/album/sidoka.jfif',
       '',
       1,
-      [musicMock[5]]
+      [this.musics[5]],
+      false,
+      0
     ),
     new playlist(
       7,
@@ -74,37 +218,47 @@ export class InMemoryDataService implements InMemoryDbService {
       'Skrillex',
       1,
       [
-        musicMock[6],
-        musicMock[7],
-        musicMock[8],
-        musicMock[9],
-        musicMock[10],
-        musicMock[11],
-        musicMock[12],
-        musicMock[13],
-        musicMock[14],
-      ]
+        this.musics[6],
+        this.musics[7],
+        this.musics[8],
+        this.musics[9],
+        this.musics[10],
+        this.musics[11],
+        this.musics[12],
+        this.musics[13],
+        this.musics[14],
+      ],
+      false,
+      0
     ),
   ];
 
   usuarios: usuario[] = [
     {
       id: 0,
-      username: 'a',
-      email: 'a',
-      senha: 'a',
-      sexo: 'masculino',
+      username: 'Admin',
+      email: 'admin',
+      senha: 'admin',
+      sexo: 'notBinary',
       dataDeNascimento: new Date(12335),
     },
   ];
 
   createDb() {
     return {
+      musics: this.musics,
       playlists: this.playlists,
       usuarios: this.usuarios,
     };
   }
 
+  get(reqInfo: RequestInfo) {
+    if (reqInfo.collectionName === 'musics') {
+      return this.filterMusic(reqInfo);
+    }
+
+    return undefined;
+  }
   post(reqInfo: RequestInfo) {
     if (reqInfo.collectionName === 'session') {
       return this.authenticate(reqInfo);
@@ -203,6 +357,29 @@ export class InMemoryDataService implements InMemoryDbService {
           },
         };
       }
+    });
+  }
+
+  private filterMusic(reqInfo: RequestInfo) {
+    return reqInfo.utils.createResponse$(() => {
+      const { headers, url, req } = reqInfo;
+      const search = reqInfo.query.get('search')[0];
+      const regExp = new RegExp(diacriticSensitiveRegex(search), 'ig');
+
+      let musics = this.musics;
+
+      musics = musics.filter(
+        (music) => regExp.test(music.author) || regExp.test(music.name)
+      );
+
+      return {
+        status: 201,
+        headers,
+        url,
+        body: {
+          musics: musics,
+        },
+      };
     });
   }
 }

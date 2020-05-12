@@ -10,6 +10,8 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
   usuario: Usuario;
+  searchValue = '';
+  inputSearch: string;
 
   constructor(public ss: SessionService, private route: Router) {}
 
@@ -32,5 +34,15 @@ export class HeaderComponent implements OnInit {
       localStorage.removeItem('user');
       this.route.navigate(['home']);
     });
+  }
+
+  keyPress(event: KeyboardEvent) {
+    if (event.keyCode === 13) {
+      this.route.navigate(['music'], {
+        queryParams: {
+          search: this.inputSearch,
+        },
+      });
+    }
   }
 }

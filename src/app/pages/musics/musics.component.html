@@ -1,0 +1,33 @@
+<div class="music-content">
+  <div class="music-list-content">
+    <div *ngIf="musics" class="music-list-container">
+      <div class="music-container" *ngFor="let music of musics; let i = index">
+
+        <div class="play-info-container">
+
+          <div (click)="[playMusic(music.path, i)]">
+            <img class="play-pause-button" src="../../../assets/img/play.svg" alt="">
+          </div>
+
+          <div class="music-info">
+            <span class="music-index">{{i + 1}}. </span>
+            <span>{{music.name}}</span>
+
+            <div class="author-album">
+
+              <span>{{music.author}}</span>
+              <span>|</span>
+              <span>{{music.album}}</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="music-time">
+          <span>
+            {{ parseTime(music.duration) }} Seg
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

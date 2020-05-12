@@ -78,6 +78,7 @@ export class ProfileComponent implements OnInit {
       };
 
       this.route.navigate(['home']);
+
       this.us.update(this.user.id, updateUser).subscribe((res) => {
         const { id, username, email } = updateUser;
         localStorage.setItem(

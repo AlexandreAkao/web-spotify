@@ -7,6 +7,7 @@ import { PlaylistComponent } from './pages/playlist/playlist.component';
 import { PlaylistSelectedComponent } from './pages/playlist-selected/playlist-selected.component';
 import { LoginComponent } from './pages/login/login.component';
 import { ProfileComponent } from './pages/profile/profile.component';
+import { MusicsComponent } from './pages/musics/musics.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -17,6 +18,7 @@ const routes: Routes = [
   { path: 'playlist-selected/:id', component: PlaylistSelectedComponent },
   { path: 'login', component: LoginComponent },
   { path: 'profile', component: ProfileComponent },
+  { path: 'music', component: MusicsComponent },
 ];
 
 @NgModule({
