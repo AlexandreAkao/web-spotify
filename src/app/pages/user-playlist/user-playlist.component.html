@@ -1,0 +1,29 @@
+<div class="user-playlist-content">
+  <div class="user-playlist-container">
+    <div class="user-playlist-header">
+      <span class="user-playlist-title">Playlists: </span>
+      <button><span>CRIAR </span></button>
+    </div>
+    <div class="user-playlist-content" *ngIf="userPlaylist">
+      <div class="playlist-container" *ngFor="let playlist of userPlaylist; let i = index">
+        <div>
+          <img class="playlist-img" src="{{ playlist.image }}" alt="playlist-image" />
+        </div>
+        <div class="info-2">
+          <span class="playlist-name">{{ playlist.name }}</span>
+          <span class="playlist-musics-size">
+            {{ playlist.musics.length }}
+            {{ playlist.musics.length === 1 ? 'música' : 'músicas' }}
+          </span>
+          <span class="playlist-privacidade">
+            Playlist {{ playlist.isPrivate ? 'privada' : 'publico' }}
+          </span>
+        </div>
+        <div class="playlist-tools">
+          <span class="editar">Editar</span>
+          <span class="delete">Deletar</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

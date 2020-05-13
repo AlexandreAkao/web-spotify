@@ -21,6 +21,7 @@ import { AppConfig } from './config/app-config';
 import { LoginComponent } from './pages/login/login.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { MusicsComponent } from './pages/musics/musics.component';
+import { UserPlaylistComponent } from './pages/user-playlist/user-playlist.component';
 
 export function initializerFn(jsonAppConfigService: JsonAppConfigService) {
   return () => {
@@ -41,6 +42,7 @@ export function initializerFn(jsonAppConfigService: JsonAppConfigService) {
     LoginComponent,
     ProfileComponent,
     MusicsComponent,
+    UserPlaylistComponent,
   ],
   imports: [
     BrowserModule,

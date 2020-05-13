@@ -120,3 +120,8 @@ div.button-container {
   display: flex;
   justify-content: space-evenly;
 }
+
+input.checkbox-pass {
+  margin-left: 10px;
+  transform: scale(1.5);
+}

@@ -12,11 +12,14 @@ export class PlaylistService {
   constructor(private http: HttpClient) {}
 
   index(): Observable<Playlist[]> {
-    // console.log(this.appConfig)
-    return this.http.get<Playlist[]>(`api/playlists`);
+    return this.http.get<Playlist[]>(`api/playlists?isPrivate=false`);
   }
 
   show(i: number): Observable<Playlist> {
     return this.http.get<Playlist>(`api/playlists/${i}`);
+  }
+
+  getByUser(i: number): Observable<Playlist[]> {
+    return this.http.get<Playlist[]>(`api/playlists-user/${i}`);
   }
 }

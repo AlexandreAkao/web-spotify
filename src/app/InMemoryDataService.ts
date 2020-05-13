@@ -253,12 +253,15 @@ export class InMemoryDataService implements InMemoryDbService {
   }
 
   get(reqInfo: RequestInfo) {
-    if (reqInfo.collectionName === 'musics') {
+    if (reqInfo.collectionName === 'playlists-user') {
+      return this.getPlaylistUser(reqInfo);
+    } else if (reqInfo.collectionName === 'musics') {
       return this.filterMusic(reqInfo);
     }
 
     return undefined;
   }
+
   post(reqInfo: RequestInfo) {
     if (reqInfo.collectionName === 'session') {
       return this.authenticate(reqInfo);
@@ -363,21 +366,57 @@ export class InMemoryDataService implements InMemoryDbService {
   private filterMusic(reqInfo: RequestInfo) {
     return reqInfo.utils.createResponse$(() => {
       const { headers, url, req } = reqInfo;
-      const search = reqInfo.query.get('search')[0];
-      const regExp = new RegExp(diacriticSensitiveRegex(search), 'ig');
+      let search = reqInfo.query.get('search')[0];
+
+      if (search === 'null') {
+        search = '';
+      }
+
+      const reg = new RegExp(diacriticSensitiveRegex(search), 'ig');
 
       let musics = this.musics;
+      musics = musics.filter((music) => {
+        console.log({
+          author: {
+            value: music.author,
+            flag: reg.test(music.author),
+          },
+          name: {
+            value: music.name,
+            flag: reg.test(music.name),
+          },
+        });
 
-      musics = musics.filter(
-        (music) => regExp.test(music.author) || regExp.test(music.name)
-      );
+        return reg.test(music.author) || reg.test(music.name);
+      });
 
       return {
-        status: 201,
+        status: 200,
         headers,
         url,
         body: {
           musics: musics,
+        },
+      };
+    });
+  }
+
+  private getPlaylistUser(reqInfo: RequestInfo) {
+    return reqInfo.utils.createResponse$(() => {
+      const { headers, url, req, id } = reqInfo;
+
+      let playlists = this.playlists;
+
+      playlists = playlists.filter(
+        (playlist) => playlist.userId === Number(id)
+      );
+
+      return {
+        status: 200,
+        headers,
+        url,
+        body: {
+          playlists,
         },
       };
     });
