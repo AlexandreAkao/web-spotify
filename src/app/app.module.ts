@@ -22,6 +22,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { MusicsComponent } from './pages/musics/musics.component';
 import { UserPlaylistComponent } from './pages/user-playlist/user-playlist.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 export function initializerFn(jsonAppConfigService: JsonAppConfigService) {
   return () => {
@@ -53,6 +54,7 @@ export function initializerFn(jsonAppConfigService: JsonAppConfigService) {
     MaterialModule,
     HttpClientModule,
     HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService),
+    NgbModule,
   ],
   providers: [
     // {

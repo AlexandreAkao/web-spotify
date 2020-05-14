@@ -2,7 +2,7 @@
   <div class="user-playlist-container">
     <div class="user-playlist-header">
       <span class="user-playlist-title">Playlists: </span>
-      <button><span>CRIAR </span></button>
+      <button (click)="open(content)"><span>CRIAR </span></button>
     </div>
     <div class="user-playlist-content" *ngIf="userPlaylist">
       <div class="playlist-container" *ngFor="let playlist of userPlaylist; let i = index">
@@ -16,14 +16,71 @@
             {{ playlist.musics.length === 1 ? 'música' : 'músicas' }}
           </span>
           <span class="playlist-privacidade">
-            Playlist {{ playlist.isPrivate ? 'privada' : 'publico' }}
+            Playlist {{ playlist.isPrivate ? 'privada' : 'público' }}
           </span>
         </div>
         <div class="playlist-tools">
           <span class="editar">Editar</span>
-          <span class="delete">Deletar</span>
+          <span (click)="deletePlaylist(playlist, deleteModal)" class="delete">Deletar</span>
         </div>
       </div>
     </div>
   </div>
+
+  <ng-template #content let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Nova Playlist</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+
+    <form [formGroup]="playlistForm" (ngSubmit)="submitPlaylist(modal)" novalidate>
+      <div class="modal-body">
+
+        <div class="form-group">
+          <label for="name">Nome: </label>
+          <input class="form-control" type="text" name="name" formControlName="name">
+        </div>
+
+        <div class="form-group">
+          <label for="image">Imagem: </label>
+          <input class="form-control" type="file" accept="image/*" name="image" formControlName="image">
+        </div>
+
+        <div class="form-group">
+          <label for="private">Privado?</label>
+          <input class="form-control" type="checkbox" name="private" formControlName="isPrivate">
+        </div>
+
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-secondary"
+          (click)="modal.dismiss('cancel click')">Cancelar</button>
+        <button type="submit" ngbAutofocus class="btn btn-success" [disabled]="!playlistForm.valid">Salvar</button>
+      </div>
+    </form>
+  </ng-template>
+
+  <ng-template #deleteModal let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-title">Deletar playlist</h4>
+      <button type="button" class="close" aria-describedby="modal-title" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <p><strong>Tem certeza que quer deletar a playlist <span
+            class="text-primary">{{selectedPlaylist.name}}</span></strong></p>
+      <p>Toda informação associada com essa playlist vai ser permanentemente deletada.
+        <span class="text-danger">Essa operação não pode ser desfeita.</span>
+      </p>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-secondary" (click)="modal.dismiss('cancel click')">Cancelar</button>
+      <button type="button" class="btn btn-danger" (click)="modal.close('Ok click')">Deletar</button>
+    </div>
+  </ng-template>
+
 </div>

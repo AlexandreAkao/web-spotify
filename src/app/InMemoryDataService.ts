@@ -145,7 +145,6 @@ export class InMemoryDataService implements InMemoryDbService {
       0,
       'When We All Fall Asleep, Where Do We Go?',
       '../../../assets/img/album/When_We_Fall_Asleep,_Where_Do_We_Go.png',
-      'Billie Eilish',
       1,
       [this.musics[0], this.musics[1], this.musics[2]],
       false,
@@ -155,7 +154,6 @@ export class InMemoryDataService implements InMemoryDbService {
       1,
       'The Days / Nights',
       '../../../assets/img/album/the_days_nights.png',
-      'Avicii',
       1,
       [this.musics[3], this.musics[4]],
       false,
@@ -165,7 +163,6 @@ export class InMemoryDataService implements InMemoryDbService {
       2,
       'Curtain Call',
       '../../../assets/img/album/eminem_curtain_call.jpg',
-      '',
       1,
       [this.musics[5]],
       false,
@@ -175,7 +172,6 @@ export class InMemoryDataService implements InMemoryDbService {
       3,
       'Castelos & Ruínas',
       '../../../assets/img/album/bk.webp',
-      '',
       1,
       [this.musics[5]],
       false,
@@ -185,7 +181,6 @@ export class InMemoryDataService implements InMemoryDbService {
       4,
       'All Eyez On Me',
       '../../../assets/img/album/2pac.jpg',
-      '',
       1,
       [this.musics[5]],
       false,
@@ -195,7 +190,6 @@ export class InMemoryDataService implements InMemoryDbService {
       5,
       'DAMN',
       '../../../assets/img/album/Kendrick_Lamar.jpg',
-      '',
       1,
       [this.musics[5]],
       false,
@@ -205,7 +199,6 @@ export class InMemoryDataService implements InMemoryDbService {
       6,
       'Doka Language',
       '../../../assets/img/album/sidoka.jfif',
-      '',
       1,
       [this.musics[5]],
       false,
@@ -215,7 +208,6 @@ export class InMemoryDataService implements InMemoryDbService {
       7,
       'Recess',
       '../../../assets/img/album/recess.jfif',
-      'Skrillex',
       1,
       [
         this.musics[6],
@@ -244,6 +236,12 @@ export class InMemoryDataService implements InMemoryDbService {
     },
   ];
 
+  indexes = {
+    musics: 0,
+    playlists: 0,
+    usuarios: 0,
+  };
+
   createDb() {
     return {
       musics: this.musics,
@@ -265,6 +263,14 @@ export class InMemoryDataService implements InMemoryDbService {
   post(reqInfo: RequestInfo) {
     if (reqInfo.collectionName === 'session') {
       return this.authenticate(reqInfo);
+    } else if (reqInfo.collectionName === 'playlists') {
+      return this.createPlaylist(reqInfo);
+    }
+
+    if (reqInfo.collectionName === 'musics') {
+      this.indexes = { ...this.indexes, musics: this.indexes.musics + 1 };
+    } else if (reqInfo.collectionName === 'usuarios') {
+      this.indexes = { ...this.indexes, playlists: this.indexes.usuarios + 1 };
     }
 
     return undefined;
@@ -417,6 +423,37 @@ export class InMemoryDataService implements InMemoryDbService {
         url,
         body: {
           playlists,
+        },
+      };
+    });
+  }
+
+  private createPlaylist(reqInfo: RequestInfo) {
+    return reqInfo.utils.createResponse$(() => {
+      const { headers, url, req } = reqInfo;
+
+      this.indexes = { ...this.indexes, playlists: this.indexes.playlists + 1 };
+
+      const { name, image, isPrivate, userId } = req['body'];
+
+      const newPlaylist = new playlist(
+        this.indexes.playlists,
+        name,
+        '../assets/img/music_placeholder.png',
+        1,
+        [],
+        isPrivate,
+        userId
+      );
+
+      this.playlists.push(newPlaylist);
+
+      return {
+        status: 201,
+        headers,
+        url,
+        body: {
+          playlist: newPlaylist,
         },
       };
     });
