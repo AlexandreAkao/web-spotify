@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 export class MusicService {
   constructor(private http: HttpClient) {}
 
-  index(search): Observable<Music[]> {
+  index(search = ''): Observable<Music[]> {
     return this.http.get<Music[]>(`api/musics`, {
       params: {
         search: search,

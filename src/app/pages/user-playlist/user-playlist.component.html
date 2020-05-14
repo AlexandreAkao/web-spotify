@@ -20,7 +20,7 @@
           </span>
         </div>
         <div class="playlist-tools">
-          <span class="editar">Editar</span>
+          <span (click)="editPlaylistModal(playlist, editModal)" class="editar">Editar</span>
           <span (click)="deletePlaylist(playlist, deleteModal)" class="delete">Deletar</span>
         </div>
       </div>
@@ -81,6 +81,57 @@
       <button type="button" class="btn btn-outline-secondary" (click)="modal.dismiss('cancel click')">Cancelar</button>
       <button type="button" class="btn btn-danger" (click)="modal.close('Ok click')">Deletar</button>
     </div>
+  </ng-template>
+
+  <ng-template #editModal let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-title">Editar playlist</h4>
+      <button type="button" class="close" aria-describedby="modal-title" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+
+    <form [formGroup]="editPlaylistForm" (ngSubmit)="submitEditPlaylist(modal)" novalidate>
+      <div class="modal-body">
+
+        <div class="form-group">
+          <label for="name">Nome: </label>
+          <input class="form-control" type="text" name="name" formControlName="name">
+        </div>
+
+        <div class="form-group">
+          <label for="image">Imagem: </label>
+          <input class="form-control" type="file" accept="image/*" name="image" formControlName="image">
+          <img class="img-thumbnail img-responsive rounded mx-auto d-block" src={{selectedPlaylist.image}}
+            alt="playlist-image">
+        </div>
+
+        <div class="form-group">
+          <label for="private">Privado?</label>
+          <input class="form-control" type="checkbox" name="private" formControlName="isPrivate">
+        </div>
+
+        <div class="form-group">
+          <label for="private">Músicas: </label>
+          <div *ngFor="let music of allMusics">
+
+            <input style="margin-right: 20px; transform: scale(1.5);" class="editCheckbox" type="checkbox"
+              name="music{{music.id}}" [checked]="musicInPlaylist(music.id)" value={{music.id}}>
+            <label class="form-check-label" for="music{{music.id}}">{{music.author}} | {{music.name}}</label>
+          </div>
+          <!-- <option *ngFor="let music of allMusics; let i = index" value={{music.id}}
+                [selected]="musicInPlaylist(music.id) === true">
+                {{music.author}} | {{music.name}} -->
+        </div>
+
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-secondary"
+          (click)="modal.dismiss('cancel click')">Cancelar</button>
+        <button type="submit" ngbAutofocus class="btn btn-success" [disabled]="!editPlaylistForm.valid">Salvar</button>
+      </div>
+    </form>
   </ng-template>
 
 </div>

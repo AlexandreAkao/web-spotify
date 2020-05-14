@@ -284,6 +284,14 @@ export class InMemoryDataService implements InMemoryDbService {
     return undefined;
   }
 
+  put(reqInfo: RequestInfo) {
+    if (reqInfo.collectionName === 'playlists') {
+      return this.updatePlaylist(reqInfo);
+    }
+
+    return undefined;
+  }
+
   private authenticate(reqInfo: RequestInfo) {
     return reqInfo.utils.createResponse$(() => {
       const { headers, url, req } = reqInfo;
@@ -456,6 +464,51 @@ export class InMemoryDataService implements InMemoryDbService {
           playlist: newPlaylist,
         },
       };
+    });
+  }
+
+  private updatePlaylist(reqInfo: RequestInfo) {
+    return reqInfo.utils.createResponse$(() => {
+      const { headers, url, req, id } = reqInfo;
+
+      const { name, image, isPrivate, musicsIds, playlistId } = req['body'];
+
+      const checkPlaylist = this.playlists.findIndex(
+        (item) => item.id === playlistId
+      );
+
+      if (checkPlaylist === -1) {
+        return {
+          status: 404,
+          headers,
+          url,
+          body: {
+            error: 'Playlist não encontrado',
+          },
+        };
+      } else {
+        let musics = [];
+
+        for (let i = 0; i < musicsIds.length; i++) {
+          musics.push(this.musics[musicsIds[i]]);
+        }
+
+        this.playlists[checkPlaylist].name = name;
+        if (image) {
+          // this.playlists[checkPlaylist].image = image;
+        }
+        this.playlists[checkPlaylist].isPrivate = isPrivate;
+        this.playlists[checkPlaylist].musics = musics;
+
+        return {
+          status: 201,
+          headers,
+          url,
+          body: {
+            playlist: this.playlists[checkPlaylist],
+          },
+        };
+      }
     });
   }
 }

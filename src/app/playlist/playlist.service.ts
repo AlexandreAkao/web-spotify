@@ -38,4 +38,8 @@ export class PlaylistService {
       this.httpOptions
     );
   }
+
+  update(i: Number, info): Observable<Playlist> {
+    return this.http.put<Playlist>(`api/playlists/${i}`, info);
+  }
 }
