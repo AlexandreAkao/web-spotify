@@ -27,4 +27,14 @@ public class UserController {
     public Mono<User> create(@RequestBody User user) {
         return userService.save(user);
     }
+
+    @PutMapping(value = "/users/{id}")
+    public Mono<User> update(@PathVariable String id, @RequestBody User user) {
+        return userService.update(id, user);
+    }
+
+    @DeleteMapping(value = "/users/{id}")
+    public Mono<Void> delete(@PathVariable String id) {
+        return userService.delete(id);
+    }
 }
