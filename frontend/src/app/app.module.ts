@@ -15,9 +15,7 @@ import { FaqComponent } from './pages/faq/faq.component';
 import { SubscribeComponent } from './pages/subscribe/subscribe.component';
 import { PlaylistComponent } from './pages/playlist/playlist.component';
 import { PlaylistSelectedComponent } from './pages/playlist-selected/playlist-selected.component';
-import { InMemoryDataService } from '../app/InMemoryDataService';
 import { JsonAppConfigService } from './config/json-app-config.service';
-import { AppConfig } from './config/app-config';
 import { LoginComponent } from './pages/login/login.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { MusicsComponent } from './pages/musics/musics.component';
@@ -53,7 +51,7 @@ export function initializerFn(jsonAppConfigService: JsonAppConfigService) {
     BrowserAnimationsModule,
     MaterialModule,
     HttpClientModule,
-    HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService),
+    // HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService),
     NgbModule,
   ],
   providers: [

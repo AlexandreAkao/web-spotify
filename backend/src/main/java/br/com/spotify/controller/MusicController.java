@@ -1,6 +1,7 @@
 package br.com.spotify.controller;
 
 import br.com.spotify.document.Music;
+import br.com.spotify.document.Playlist;
 import br.com.spotify.service.MusicService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -20,6 +21,11 @@ public class MusicController {
         }
 
         return musicService.findAll();
+    }
+
+    @GetMapping(value = "/musics/{id}")
+    public Mono<Music> findById(@PathVariable String id) {
+        return musicService.findById(id);
     }
 
     @PostMapping(value = "/musics")

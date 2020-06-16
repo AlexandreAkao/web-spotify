@@ -1,5 +1,5 @@
 export default class Music {
-  id: number;
+  id: string;
   album: string;
   name: string;
   image: string;

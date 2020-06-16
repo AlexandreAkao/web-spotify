@@ -9,10 +9,18 @@ export class MusicService {
   constructor(private http: HttpClient) {}
 
   index(search = ''): Observable<Music[]> {
-    return this.http.get<Music[]>(`api/musics`, {
-      params: {
-        search: search,
-      },
-    });
+    if (search) {
+      return this.http.get<Music[]>(`http://localhost:8080/musics`, {
+        params: {
+          search: search,
+        },
+      });
+    }
+
+    return this.http.get<Music[]>(`http://localhost:8080/musics`);
+  }
+
+  show(id: string): Observable<Music> {
+    return this.http.get<Music>(`http://localhost:8080/musics/${id}`);
   }
 }

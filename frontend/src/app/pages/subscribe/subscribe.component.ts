@@ -94,7 +94,7 @@ export class SubscribeComponent implements OnInit {
         {
           this.us
             .create({
-              id: res.length,
+              // id: res.length,
               username: inputValue.name,
               email: inputValue.email,
               senha: inputValue.password,

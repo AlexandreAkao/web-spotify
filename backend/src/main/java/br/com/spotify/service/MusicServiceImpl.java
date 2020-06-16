@@ -3,7 +3,6 @@ package br.com.spotify.service;
 import br.com.spotify.document.Music;
 import br.com.spotify.repository.MusicRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Example;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
@@ -22,6 +21,11 @@ public class MusicServiceImpl implements MusicService {
     @Override
     public Flux<Music> findByNameOrAuthor(String search) {
         return musicRepository.findByNameOrAuthor(search);
+    }
+
+    @Override
+    public Mono<Music> findById(String id) {
+        return musicRepository.findById(id);
     }
 
     @Override

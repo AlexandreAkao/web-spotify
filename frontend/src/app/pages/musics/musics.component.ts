@@ -23,7 +23,7 @@ export class MusicsComponent implements OnInit {
       search = params.get('search');
 
       this.ms.index(search).subscribe((res) => {
-        this.musics = res['musics'];
+        this.musics = res;
       });
     });
   }

@@ -6,6 +6,6 @@ import org.springframework.data.mongodb.repository.ReactiveMongoRepository;
 import reactor.core.publisher.Flux;
 
 public interface MusicRepository extends ReactiveMongoRepository<Music, String> {
-    @Query("{$or: [{ 'name': ?0 }, { 'author': ?0 }]}")
+    @Query("{$or: [{ 'name': { $regex: ?0, $options: 'i' } }, { 'author': { $regex: ?0, $options: 'i'}}]}")
     Flux<Music> findByNameOrAuthor(String search);
 }

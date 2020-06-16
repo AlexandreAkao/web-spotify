@@ -29,6 +29,7 @@ export class ProfileComponent implements OnInit {
     const month = date.getMonth();
     const year = date.getFullYear();
 
+    console.log(month);
     this.updatedForm = this.fb.group({
       username: [this.user.username, Validators.required],
       email: [this.user.email, Validators.required],
@@ -46,8 +47,10 @@ export class ProfileComponent implements OnInit {
   ngOnInit(): void {
     let session = JSON.parse(localStorage.getItem('user'));
 
-    this.us.show(session.user.id).subscribe((usuario) => {
+    this.us.show(session.userId).subscribe((usuario) => {
       this.user = usuario;
+      this.user.dataDeNascimento = new Date(usuario.dataDeNascimento);
+
       this.createForm();
     });
   }
@@ -84,11 +87,9 @@ export class ProfileComponent implements OnInit {
         localStorage.setItem(
           'user',
           JSON.stringify({
-            user: {
-              id,
-              username,
-              email,
-            },
+            userId: id,
+            name: username,
+            email,
             token:
               'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c',
           })

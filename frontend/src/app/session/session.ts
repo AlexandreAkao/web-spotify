@@ -1,8 +1,6 @@
 export interface Session {
-  user: {
-    id: Number;
-    username: string;
-    email: string;
-  };
+  id: string;
+  name: string;
+  email: string;
   token: string;
 }
