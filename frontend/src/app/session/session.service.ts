@@ -7,6 +7,7 @@ import { Session } from '../session/Session';
   providedIn: 'root',
 })
 export class SessionService {
+  BASE_URL = 'http://localhost:8080';
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
   };
@@ -14,10 +15,14 @@ export class SessionService {
   constructor(private http: HttpClient) {}
 
   login(info: { username: string; password: string }): Observable<Session> {
-    return this.http.post<Session>('api/session', info, this.httpOptions);
+    return this.http.post<Session>(
+      `${this.BASE_URL}/sessions`,
+      info,
+      this.httpOptions
+    );
   }
 
   logout() {
-    return this.http.delete('api/session');
+    return localStorage.removeItem('user');
   }
 }

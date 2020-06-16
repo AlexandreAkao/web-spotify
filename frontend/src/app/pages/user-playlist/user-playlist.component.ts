@@ -16,7 +16,7 @@ export class UserPlaylistComponent implements OnInit {
   modal;
   session;
   selectedPlaylist: Playlist;
-  selectedPlaylistMusicsIds: number[] = [];
+  selectedPlaylistMusicsIds: string[] = [];
   playlistForm: FormGroup;
   editPlaylistForm: FormGroup;
   allMusics: Music[];
@@ -32,8 +32,8 @@ export class UserPlaylistComponent implements OnInit {
     this.createForm();
     this.session = JSON.parse(localStorage.getItem('user'));
 
-    this.ps.getByUser(this.session.user.id).subscribe((res) => {
-      this.userPlaylist = res['playlists'];
+    this.ps.getByUser(this.session.userId).subscribe((res) => {
+      this.userPlaylist = res;
     });
   }
 
@@ -74,10 +74,10 @@ export class UserPlaylistComponent implements OnInit {
   submitPlaylist(modal) {
     console.log(this.playlistForm.value);
     this.ps
-      .create({ ...this.playlistForm.value, userId: this.session.user.id })
+      .create({ ...this.playlistForm.value, userId: this.session.userId })
       .subscribe((res) => {
-        this.ps.getByUser(this.session.user.id).subscribe((res) => {
-          this.userPlaylist = res['playlists'];
+        this.ps.getByUser(this.session.userId).subscribe((res) => {
+          this.userPlaylist = res;
           modal.dismiss();
         });
       });
@@ -89,8 +89,8 @@ export class UserPlaylistComponent implements OnInit {
     this.modalService.open(modal).result.then(
       (result) => {
         this.ps.delete(playlist.id).subscribe((res) =>
-          this.ps.getByUser(this.session.user.id).subscribe((res) => {
-            this.userPlaylist = res['playlists'];
+          this.ps.getByUser(this.session.userId).subscribe((res) => {
+            this.userPlaylist = res;
           })
         );
       },
@@ -109,7 +109,7 @@ export class UserPlaylistComponent implements OnInit {
     });
 
     this.ms.index().subscribe((res) => {
-      this.allMusics = res['musics'];
+      this.allMusics = res;
       this.createEditForm(playlist, modal);
     });
   }
@@ -127,19 +127,20 @@ export class UserPlaylistComponent implements OnInit {
 
     checkboxes.forEach((item) => {
       if (item['checked']) {
-        this.selectedPlaylistMusicsIds.push(Number(item['value']));
+        this.selectedPlaylistMusicsIds.push(item['value']);
       }
     });
 
     this.ps
-      .update(this.session.id, {
+      .update(this.selectedPlaylist.id, {
+        id: this.selectedPlaylist.id,
         ...this.editPlaylistForm.value,
-        playlistId: this.selectedPlaylist.id,
-        musicsIds: this.selectedPlaylistMusicsIds,
+        private: this.editPlaylistForm.value.isPrivate,
+        // musicsIds: this.selectedPlaylistMusicsIds,
       })
       .subscribe((res) => {
-        this.ps.getByUser(this.session.user.id).subscribe((res) => {
-          this.userPlaylist = res['playlists'];
+        this.ps.getByUser(this.session.userId).subscribe((res) => {
+          this.userPlaylist = res;
           modal.dismiss();
         });
       });

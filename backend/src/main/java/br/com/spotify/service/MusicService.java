@@ -9,5 +9,7 @@ public interface MusicService {
 
     Flux<Music> findByNameOrAuthor(String search);
 
+    Mono<Music> findById(String id);
+
     Mono<Music> save(Music music);
 }

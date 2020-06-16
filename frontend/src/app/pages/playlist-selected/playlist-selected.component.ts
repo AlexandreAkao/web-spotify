@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import Playlist from '../../playlist/Playlist';
 import { PlaylistService } from 'src/app/playlist/playlist.service';
+import { MusicService } from 'src/app/music/music.service';
+import Music from 'src/app/music/Music';
 
 @Component({
   selector: 'app-playlist-selected',
@@ -9,17 +11,30 @@ import { PlaylistService } from 'src/app/playlist/playlist.service';
   styleUrls: ['./playlist-selected.component.css'],
 })
 export class PlaylistSelectedComponent implements OnInit {
-  playlistId: number;
+  playlistId: string;
   playlist: Playlist;
+  musics: Music[] = [];
   isPlaying = false;
   idPlaying = -1;
   audio = new Audio();
 
-  constructor(private route: ActivatedRoute, private ps: PlaylistService) {}
+  constructor(
+    private route: ActivatedRoute,
+    private ps: PlaylistService,
+    private ms: MusicService
+  ) {}
 
   ngOnInit(): void {
-    this.playlistId = Number(this.route.snapshot.paramMap.get('id'));
+    this.playlistId = this.route.snapshot.paramMap.get('id');
     this.ps.show(this.playlistId).subscribe((p) => {
+      const musicId = p.musics.map((music) => music.id);
+
+      for (let i = 0; i < musicId.length; i++) {
+        this.ms.show(musicId[i]).subscribe((m) => {
+          this.musics.push(m);
+        });
+      }
+
       this.playlist = p;
     });
   }

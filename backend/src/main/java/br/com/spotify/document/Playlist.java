@@ -1,7 +1,6 @@
 package br.com.spotify.document;
 
 import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.DBRef;
 
 import java.util.List;
 
@@ -13,9 +12,10 @@ public class Playlist {
     private String image;
     private Boolean isPrivate;
     private int duration;
-    @DBRef
     private List<Music> musics;
     private String userId;
+
+    public Playlist() {}
 
     public Playlist(String id, String name, String image, Boolean isPrivate, int duration, List<Music> musics, String userId) {
         this.id = id;

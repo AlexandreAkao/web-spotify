@@ -8,6 +8,7 @@ import Usuario from './Usuario';
   providedIn: 'root',
 })
 export class UsuarioService {
+  BASE_URL = 'http://localhost:8080';
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
   };
@@ -15,18 +16,22 @@ export class UsuarioService {
   constructor(private http: HttpClient) {}
 
   create(usuario: Usuario): Observable<Usuario> {
-    return this.http.post<Usuario>(`api/usuarios`, usuario, this.httpOptions);
+    return this.http.post<Usuario>(
+      `${this.BASE_URL}/users`,
+      usuario,
+      this.httpOptions
+    );
   }
 
   index(): Observable<Usuario[]> {
-    return this.http.get<Usuario[]>(`api/usuarios`);
+    return this.http.get<Usuario[]>(`${this.BASE_URL}/users`);
   }
 
-  show(i: Number): Observable<Usuario> {
-    return this.http.get<Usuario>(`api/usuarios/${i}`);
+  show(i: string): Observable<Usuario> {
+    return this.http.get<Usuario>(`${this.BASE_URL}/users/${i}`);
   }
 
-  update(i: Number, info: {}): Observable<Usuario> {
-    return this.http.put<Usuario>(`api/usuarios/${i}`, info);
+  update(i: string, info: {}): Observable<Usuario> {
+    return this.http.put<Usuario>(`${this.BASE_URL}/users/${i}`, info);
   }
 }

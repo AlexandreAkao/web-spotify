@@ -1,7 +1,7 @@
 import Music from '../music/Music';
 
 export default class Playlist {
-  id: number;
+  id: string;
   name: string;
   image: string;
   duration: number;

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SessionService } from 'src/app/session/session.service';
-import Usuario from 'src/app/usuario/Usuario';
 import { Router } from '@angular/router';
+import { Session } from 'src/app/session/Session';
 
 @Component({
   selector: 'app-header',
@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent implements OnInit {
-  usuario: Usuario;
+  usuario: Session;
   searchValue = '';
   inputSearch: string;
 
@@ -21,7 +21,7 @@ export class HeaderComponent implements OnInit {
     const user = JSON.parse(localStorage.getItem('user'));
 
     if (user) {
-      this.usuario = user.user;
+      this.usuario = user;
 
       return true;
     } else {
@@ -30,10 +30,8 @@ export class HeaderComponent implements OnInit {
   }
 
   logout(): void {
-    this.ss.logout().subscribe(() => {
-      localStorage.removeItem('user');
-      this.route.navigate(['home']);
-    });
+    this.ss.logout();
+    this.route.navigate(['home']);
   }
 
   keyPress(event: KeyboardEvent) {

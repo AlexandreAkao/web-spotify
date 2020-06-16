@@ -40,16 +40,61 @@ public class PlaylistServiceImpl implements PlaylistService {
 
     @Override
     public Mono<Playlist> update(String id, Playlist newPlaylist) {
-        Playlist updatedPlaylist = new Playlist(
-                id,
-                newPlaylist.getName(),
-                newPlaylist.getImage(),
-                newPlaylist.getPrivate(),
-                newPlaylist.getDuration(),
-                newPlaylist.getMusics(),
-                newPlaylist.getUserId()
-        );
+//        Playlist updatedPlaylist = new Playlist(
+//                id,
+//                newPlaylist.getName(),
+//                newPlaylist.getImage(),
+//                newPlaylist.getPrivate(),
+//                newPlaylist.getDuration(),
+//                newPlaylist.getMusics(),
+//                newPlaylist.getUserId()
+//        );
 
-        return playlistRepository.save(updatedPlaylist);
+//
+        return playlistRepository.save(newPlaylist);
+//        return playlistRepository.findById(id).map(playlist -> {
+//            if (newPlaylist.getName() != null) {
+//                playlist.setName(newPlaylist.getName());
+//            }
+//
+//            if (newPlaylist.getImage() != null && newPlaylist.getImage().equals("")) {
+//                playlist.setImage(newPlaylist.getImage());
+//            }
+//
+//            if (newPlaylist.getPrivate() != null) {
+//                playlist.setPrivate(newPlaylist.getPrivate());
+//            }
+//
+//            if (newPlaylist.getMusics() != null) {
+//                playlist.setMusics(newPlaylist.getMusics());
+//            }
+//
+//            if (newPlaylist.getUserId() != null) {
+//                playlist.setUserId(newPlaylist.getUserId());
+//            }
+//
+//            //playlistRepository.save(playlist);
+//
+//            return playlist;
+//        });
+
+
+//        updatedPlaylist.setId(id);
+//
+//        if (newPlaylist.getName() != null) {
+//            updatedPlaylist.setName(newPlaylist.getName());
+//        }
+//        if (newPlaylist.getImage() != null && newPlaylist.getImage().equals("")) {
+//            updatedPlaylist.setImage(newPlaylist.getImage());
+//        }
+//        if (newPlaylist.getPrivate() != null) {
+//            updatedPlaylist.setPrivate(newPlaylist.getPrivate());
+//        }
+//        if (newPlaylist.getMusics() != null) {
+//            updatedPlaylist.setMusics(newPlaylist.getMusics());
+//        }
+//        if (newPlaylist.getUserId() != null) {
+//            updatedPlaylist.setUserId(newPlaylist.getUserId());
+//        }
     }
 }
